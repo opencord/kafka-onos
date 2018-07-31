@@ -24,9 +24,10 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
-import org.opencord.aaa.AuthenticationEvent;
-import org.opencord.aaa.AuthenticationEventListener;
-import org.opencord.aaa.AuthenticationService;
+import org.opencord.dhcpl2relay.DhcpAllocationInfo;
+import org.opencord.dhcpl2relay.DhcpL2RelayEvent;
+import org.opencord.dhcpl2relay.DhcpL2RelayListener;
+import org.opencord.dhcpl2relay.DhcpL2RelayService;
 import org.opencord.kafka.EventBusService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,10 +35,10 @@ import org.slf4j.LoggerFactory;
 import java.time.Instant;
 
 /**
- * Listens for AAA events and pushes them on a Kafka bus.
+ * Listens for DHCP L2 relay events and pushes them on a Kafka bus.
  */
 @Component(immediate = true)
-public class AaaKafkaIntegration {
+public class DhcpL2RelayKafkaIntegration {
 
     public Logger log = LoggerFactory.getLogger(getClass());
 
@@ -45,16 +46,19 @@ public class AaaKafkaIntegration {
     protected EventBusService eventBusService;
 
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
-    protected AuthenticationService authenticationService;
+    protected DhcpL2RelayService authenticationService;
 
-    private final AuthenticationEventListener listener = new InternalAuthenticationListener();
+    private final DhcpL2RelayListener listener = new InternalDhcpL2RelayListener();
 
-    private static final String TOPIC = "authentication.events";
+    private static final String TOPIC = "dhcp.events";
 
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
+    private static final String TYPE = "type";
+    private static final String MESSAGE_TYPE = "messageType";
     private static final String PORT_NUMBER = "portNumber";
-    private static final String AUTHENTICATION_STATE = "authenticationState";
+    private static final String MAC_ADDRESS = "macAddress";
+    private static final String IP_ADDRESS = "ipAddress";
 
     @Activate
     public void activate() {
@@ -68,26 +72,30 @@ public class AaaKafkaIntegration {
         log.info("Stopped");
     }
 
-    private void handle(AuthenticationEvent event) {
+    private void handle(DhcpL2RelayEvent event) {
         eventBusService.send(TOPIC, serialize(event));
     }
 
-    private JsonNode serialize(AuthenticationEvent event) {
+    private JsonNode serialize(DhcpL2RelayEvent event) {
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode authEvent = mapper.createObjectNode();
-        authEvent.put(TIMESTAMP, Instant.now().toString());
-        authEvent.put(DEVICE_ID, event.subject().deviceId().toString());
-        authEvent.put(PORT_NUMBER, event.subject().port().toString());
-        authEvent.put(AUTHENTICATION_STATE, event.type().toString());
-        return authEvent;
+        ObjectNode dhcpEvent = mapper.createObjectNode();
+        DhcpAllocationInfo allocationInfo = event.subject();
+        dhcpEvent.put(TYPE, event.type().toString());
+        dhcpEvent.put(TIMESTAMP, Instant.now().toString());
+        dhcpEvent.put(DEVICE_ID, event.connectPoint().deviceId().toString());
+        dhcpEvent.put(MESSAGE_TYPE, allocationInfo.type().toString());
+        dhcpEvent.put(PORT_NUMBER, event.connectPoint().port().toString());
+        dhcpEvent.put(MAC_ADDRESS, allocationInfo.macAddress().toString());
+        dhcpEvent.put(IP_ADDRESS, allocationInfo.ipAddress().toString());
+        return dhcpEvent;
     }
 
-    private class InternalAuthenticationListener implements
-            AuthenticationEventListener {
+    private class InternalDhcpL2RelayListener implements
+            DhcpL2RelayListener {
 
         @Override
-        public void event(AuthenticationEvent authenticationEvent) {
-            handle(authenticationEvent);
+        public void event(DhcpL2RelayEvent dhcpL2RelayEvent) {
+            handle(dhcpL2RelayEvent);
         }
     }
 }
