@@ -49,9 +49,9 @@ public class AaaKafkaIntegration {
 
     private static final String TOPIC = "authentication.events";
 
-    private static final String DEVICE_ID = "device_id";
-    private static final String PORT_NUMBER = "port_number";
-    private static final String AUTHENTICATION_STATE = "authentication_state";
+    private static final String DEVICE_ID = "deviceId";
+    private static final String PORT_NUMBER = "portNumber";
+    private static final String AUTHENTICATION_STATE = "authenticationState";
 
     @Activate
     public void activate() {
