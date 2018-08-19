@@ -20,5 +20,5 @@
      features="${project.artifactId}" apps="org.opencord.olt,org.opencord.dhcpl2relay,org.opencord.aaa">
     <description>${project.description}</description>
     <artifact>mvn:${project.groupId}/${project.artifactId}/${project.version}</artifact>
-    <artifact>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/1.1.0_1</artifact>
+    <artifact>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/1.1.1_1</artifact>
 </app>
