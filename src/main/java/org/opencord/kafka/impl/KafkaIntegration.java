@@ -186,6 +186,7 @@ public class KafkaIntegration implements EventBusService {
     @Override
     public void send(String topic, JsonNode data) {
         if (kafkaProducer == null) {
+            log.warn("Not sending event as kafkaProducer is not defined: {}", data.toString());
             return;
         }
 
