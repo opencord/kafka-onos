@@ -1,0 +1,8 @@
+Verified+1: Jenkins Jenkins <do-not-reply@opencord.org>
+Code-Review+1: Shad Ansari <shad@opennetworking.org>
+Code-Review+2: Matteo Scandolo <teo@opennetworking.org>
+Submitted-by: Matteo Scandolo <teo@opennetworking.org>
+Submitted-at: Mon, 17 Sep 2018 16:27:22 +0000
+Reviewed-on: https://gerrit.opencord.org/11005
+Project: kafka-onos
+Branch: refs/heads/master
