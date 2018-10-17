@@ -107,6 +107,7 @@ public class KafkaIntegration implements EventBusService {
         appId = coreService.registerApplication(APP_NAME);
         configRegistry.registerConfigFactory(kafkaConfigFactory);
         configRegistry.addListener(configListener);
+        configure();
 
         log.info("Started");
     }
