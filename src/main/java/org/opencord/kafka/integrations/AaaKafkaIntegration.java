@@ -44,7 +44,9 @@ public class AaaKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            bind = "bindAuthenticationService",
+            unbind = "unbindAuthenticationService")
     protected AuthenticationService authenticationService;
 
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
@@ -56,15 +58,35 @@ public class AaaKafkaIntegration {
     private static final String PORT_NUMBER = "portNumber";
     private static final String AUTHENTICATION_STATE = "authenticationState";
 
+    protected void bindAuthenticationService(AuthenticationService authenticationService) {
+        if (this.authenticationService == null) {
+            log.info("Binding AuthenticationService");
+            this.authenticationService = authenticationService;
+            log.info("Adding listener on AuthenticationService");
+            authenticationService.addListener(listener);
+        } else {
+            log.warn("Trying to bind AuthenticationService but it is already bound");
+        }
+    }
+
+    protected void unbindAuthenticationService(AuthenticationService authenticationService) {
+        if (this.authenticationService == authenticationService) {
+            log.info("Unbinding AuthenticationService");
+            this.authenticationService = null;
+            log.info("Removing listener on AuthenticationService");
+            authenticationService.removeListener(listener);
+        } else {
+            log.warn("Trying to unbind AuthenticationService but it is already unbound");
+        }
+    }
+
     @Activate
     public void activate() {
-        authenticationService.addListener(listener);
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        authenticationService.removeListener(listener);
         log.info("Stopped");
     }
 
