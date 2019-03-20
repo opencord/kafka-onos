@@ -1,0 +1,9 @@
+Verified+1: Jenkins Jenkins <do-not-reply@opencord.org>
+Code-Review+1: Matteo Scandolo <teo@opennetworking.org>
+Code-Review+1: Zack Williams <zdw@opennetworking.org>
+Code-Review+2: Scott Baker <scottb@onlab.us>
+Submitted-by: Scott Baker <scottb@onlab.us>
+Submitted-at: Wed, 20 Mar 2019 00:05:55 +0000
+Reviewed-on: https://gerrit.opencord.org/13373
+Project: kafka-onos
+Branch: refs/heads/master
