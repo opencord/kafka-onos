@@ -44,7 +44,7 @@ public class AaaKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY)
     protected AuthenticationService authenticationService;
 
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
@@ -58,13 +58,19 @@ public class AaaKafkaIntegration {
 
     @Activate
     public void activate() {
-        authenticationService.addListener(listener);
+        if (authenticationService != null) {
+            log.debug("Adding listener on AuthenticationService");
+            authenticationService.addListener(listener);
+        }
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        authenticationService.removeListener(listener);
+        if (authenticationService != null) {
+            log.debug("Removing listener on AuthenticationService");
+            authenticationService.removeListener(listener);
+        }
         log.info("Stopped");
     }
 

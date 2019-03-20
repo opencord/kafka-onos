@@ -45,8 +45,8 @@ public class DhcpL2RelayKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
-    protected DhcpL2RelayService authenticationService;
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY)
+    protected DhcpL2RelayService dhcpL2RelayService;
 
     private final DhcpL2RelayListener listener = new InternalDhcpL2RelayListener();
 
@@ -62,13 +62,19 @@ public class DhcpL2RelayKafkaIntegration {
 
     @Activate
     public void activate() {
-        authenticationService.addListener(listener);
+        if (dhcpL2RelayService != null) {
+            log.debug("Adding listener on DhcpL2RelayService");
+            dhcpL2RelayService.addListener(listener);
+        }
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        authenticationService.removeListener(listener);
+        if (dhcpL2RelayService != null) {
+            log.debug("Adding listener on DhcpL2RelayService");
+            dhcpL2RelayService.removeListener(listener);
+        }
         log.info("Stopped");
     }
 
