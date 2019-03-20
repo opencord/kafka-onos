@@ -45,7 +45,7 @@ public class AccessDeviceKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY)
     protected AccessDeviceService accessDeviceService;
 
     private final AccessDeviceListener listener = new InternalAccessDeviceListener();
@@ -65,13 +65,19 @@ public class AccessDeviceKafkaIntegration {
 
     @Activate
     public void activate() {
-        accessDeviceService.addListener(listener);
+        if (accessDeviceService != null) {
+            log.debug("Adding listener on AccessDeviceService");
+            accessDeviceService.addListener(listener);
+        }
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        accessDeviceService.removeListener(listener);
+        if (accessDeviceService != null) {
+            log.debug("Removing listener on AccessDeviceService");
+            accessDeviceService.removeListener(listener);
+        }
         log.info("Stopped");
     }
 
