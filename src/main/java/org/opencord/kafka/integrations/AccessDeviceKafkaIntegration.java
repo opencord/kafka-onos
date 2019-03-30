@@ -54,9 +54,9 @@ public class AccessDeviceKafkaIntegration {
 
     // event fields
     private static final String STATUS = "status";
-    private static final String SERIAL_NUMBER = "serial_number";
-    private static final String UNI_PORT_ID = "uni_port_id";
-    private static final String OF_DPID = "of_dpid";
+    private static final String SERIAL_NUMBER = "serialNumber";
+    private static final String PORT_NUMBER = "portNumber";  // uni port
+    private static final String DEVICE_ID = "deviceId";  // OLT OpenFlow Id
     private static final String TIMESTAMP = "timestamp";
 
     // statuses
@@ -88,8 +88,8 @@ public class AccessDeviceKafkaIntegration {
         onuNode.put(TIMESTAMP, Instant.now().toString());
         onuNode.put(STATUS, status);
         onuNode.put(SERIAL_NUMBER, serialNumber);
-        onuNode.put(UNI_PORT_ID, port.number().toLong());
-        onuNode.put(OF_DPID, port.element().id().toString());
+        onuNode.put(PORT_NUMBER, port.number().toString());
+        onuNode.put(DEVICE_ID, port.element().id().toString());
 
         return onuNode;
     }
