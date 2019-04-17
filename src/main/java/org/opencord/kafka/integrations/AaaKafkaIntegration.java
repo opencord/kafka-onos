@@ -56,6 +56,7 @@ public class AaaKafkaIntegration {
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
     private static final String PORT_NUMBER = "portNumber";
+    private static final String SERIAL_NUMBER = "serialNumber";
     private static final String AUTHENTICATION_STATE = "authenticationState";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
@@ -100,6 +101,7 @@ public class AaaKafkaIntegration {
         authEvent.put(TIMESTAMP, Instant.now().toString());
         authEvent.put(DEVICE_ID, event.subject().deviceId().toString());
         authEvent.put(PORT_NUMBER, event.subject().port().toString());
+        authEvent.put(SERIAL_NUMBER, event.subject().port().name());
         authEvent.put(AUTHENTICATION_STATE, event.type().toString());
         return authEvent;
     }

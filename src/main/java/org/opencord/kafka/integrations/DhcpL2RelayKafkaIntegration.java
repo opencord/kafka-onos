@@ -56,9 +56,10 @@ public class DhcpL2RelayKafkaIntegration {
 
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
+    private static final String PORT_NUMBER = "portNumber";
+    private static final String SERIAL_NUMBER = "serialNumber";
     private static final String TYPE = "type";
     private static final String MESSAGE_TYPE = "messageType";
-    private static final String PORT_NUMBER = "portNumber";
     private static final String MAC_ADDRESS = "macAddress";
     private static final String IP_ADDRESS = "ipAddress";
 
@@ -105,8 +106,9 @@ public class DhcpL2RelayKafkaIntegration {
         dhcpEvent.put(TYPE, event.type().toString());
         dhcpEvent.put(TIMESTAMP, Instant.now().toString());
         dhcpEvent.put(DEVICE_ID, event.connectPoint().deviceId().toString());
-        dhcpEvent.put(MESSAGE_TYPE, allocationInfo.type().toString());
         dhcpEvent.put(PORT_NUMBER, event.connectPoint().port().toString());
+        dhcpEvent.put(SERIAL_NUMBER, event.connectPoint().port().name());
+        dhcpEvent.put(MESSAGE_TYPE, allocationInfo.type().toString());
         dhcpEvent.put(MAC_ADDRESS, allocationInfo.macAddress().toString());
         dhcpEvent.put(IP_ADDRESS, allocationInfo.ipAddress().toString());
         return dhcpEvent;
