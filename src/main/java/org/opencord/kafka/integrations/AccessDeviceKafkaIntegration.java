@@ -45,7 +45,9 @@ public class AccessDeviceKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            bind = "bindAccessDeviceService",
+            unbind = "unbindAccessDeviceService")
     protected AccessDeviceService accessDeviceService;
 
     private final AccessDeviceListener listener = new InternalAccessDeviceListener();
@@ -63,15 +65,35 @@ public class AccessDeviceKafkaIntegration {
     private static final String ACTIVATED = "activated";
     private static final String DISABLED = "disabled";
 
+    protected void bindAccessDeviceService(AccessDeviceService accessDeviceService) {
+        if (this.accessDeviceService == null) {
+            log.info("Binding AccessDeviceService");
+            this.accessDeviceService = accessDeviceService;
+            log.info("Adding listener on AccessDeviceService");
+            accessDeviceService.addListener(listener);
+        } else {
+            log.warn("Trying to bind AccessDeviceService but it is already bound");
+        }
+    }
+
+    protected void unbindAccessDeviceService(AccessDeviceService accessDeviceService) {
+        if (this.accessDeviceService == accessDeviceService) {
+            log.info("Unbinding AccessDeviceService");
+            this.accessDeviceService = null;
+            log.info("Removing listener on AccessDeviceService");
+            accessDeviceService.removeListener(listener);
+        } else {
+            log.warn("Trying to unbind AccessDeviceService but it is already unbound");
+        }
+    }
+
     @Activate
     public void activate() {
-        accessDeviceService.addListener(listener);
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        accessDeviceService.removeListener(listener);
         log.info("Stopped");
     }
 

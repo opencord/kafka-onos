@@ -45,8 +45,10 @@ public class DhcpL2RelayKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
-    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
-    protected DhcpL2RelayService authenticationService;
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            bind = "bindDhcpL2RelayService",
+            unbind = "unbindDhcpL2RelayService")
+    protected DhcpL2RelayService dhcpL2RelayService;
 
     private final DhcpL2RelayListener listener = new InternalDhcpL2RelayListener();
 
@@ -60,15 +62,35 @@ public class DhcpL2RelayKafkaIntegration {
     private static final String MAC_ADDRESS = "macAddress";
     private static final String IP_ADDRESS = "ipAddress";
 
+    protected void bindDhcpL2RelayService(DhcpL2RelayService dhcpL2RelayService) {
+        if (this.dhcpL2RelayService == null) {
+            log.info("Binding DhcpL2RelayService");
+            this.dhcpL2RelayService = dhcpL2RelayService;
+            log.info("Adding listener on DhcpL2RelayService");
+            dhcpL2RelayService.addListener(listener);
+        } else {
+            log.warn("Trying to bind DhcpL2RelayService but it is already bound");
+        }
+    }
+
+    protected void unbindDhcpL2RelayService(DhcpL2RelayService dhcpL2RelayService) {
+        if (this.dhcpL2RelayService == dhcpL2RelayService) {
+            log.info("Unbinding DhcpL2RelayService");
+            this.dhcpL2RelayService = null;
+            log.info("Removing listener on DhcpL2RelayService");
+            dhcpL2RelayService.removeListener(listener);
+        } else {
+            log.warn("Trying to unbind DhcpL2RelayService but it is already unbound");
+        }
+    }
+
     @Activate
     public void activate() {
-        authenticationService.addListener(listener);
         log.info("Started");
     }
 
     @Deactivate
     public void deactivate() {
-        authenticationService.removeListener(listener);
         log.info("Stopped");
     }
 
