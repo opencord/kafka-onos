@@ -24,6 +24,8 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.onosproject.net.AnnotationKeys;
+import org.onosproject.net.device.DeviceService;
 import org.opencord.dhcpl2relay.DhcpAllocationInfo;
 import org.opencord.dhcpl2relay.DhcpL2RelayEvent;
 import org.opencord.dhcpl2relay.DhcpL2RelayListener;
@@ -45,6 +47,9 @@ public class DhcpL2RelayKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected DeviceService deviceService;
+
     @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
             bind = "bindDhcpL2RelayService",
             unbind = "unbindDhcpL2RelayService")
@@ -56,9 +61,10 @@ public class DhcpL2RelayKafkaIntegration {
 
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
+    private static final String PORT_NUMBER = "portNumber";
+    private static final String SERIAL_NUMBER = "serialNumber";
     private static final String TYPE = "type";
     private static final String MESSAGE_TYPE = "messageType";
-    private static final String PORT_NUMBER = "portNumber";
     private static final String MAC_ADDRESS = "macAddress";
     private static final String IP_ADDRESS = "ipAddress";
 
@@ -99,14 +105,18 @@ public class DhcpL2RelayKafkaIntegration {
     }
 
     private JsonNode serialize(DhcpL2RelayEvent event) {
+
+        String sn = deviceService.getPort(event.subject().location()).annotations().value(AnnotationKeys.PORT_NAME);
+
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode dhcpEvent = mapper.createObjectNode();
         DhcpAllocationInfo allocationInfo = event.subject();
         dhcpEvent.put(TYPE, event.type().toString());
         dhcpEvent.put(TIMESTAMP, Instant.now().toString());
         dhcpEvent.put(DEVICE_ID, event.connectPoint().deviceId().toString());
-        dhcpEvent.put(MESSAGE_TYPE, allocationInfo.type().toString());
         dhcpEvent.put(PORT_NUMBER, event.connectPoint().port().toString());
+        dhcpEvent.put(SERIAL_NUMBER, sn);
+        dhcpEvent.put(MESSAGE_TYPE, allocationInfo.type().toString());
         dhcpEvent.put(MAC_ADDRESS, allocationInfo.macAddress().toString());
         dhcpEvent.put(IP_ADDRESS, allocationInfo.ipAddress().toString());
         return dhcpEvent;

@@ -24,6 +24,8 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.onosproject.net.AnnotationKeys;
+import org.onosproject.net.device.DeviceService;
 import org.opencord.aaa.AuthenticationEvent;
 import org.opencord.aaa.AuthenticationEventListener;
 import org.opencord.aaa.AuthenticationService;
@@ -44,6 +46,9 @@ public class AaaKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected EventBusService eventBusService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
+    protected DeviceService deviceService;
+
     @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
             bind = "bindAuthenticationService",
             unbind = "unbindAuthenticationService")
@@ -56,6 +61,7 @@ public class AaaKafkaIntegration {
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
     private static final String PORT_NUMBER = "portNumber";
+    private static final String SERIAL_NUMBER = "serialNumber";
     private static final String AUTHENTICATION_STATE = "authenticationState";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
@@ -95,11 +101,15 @@ public class AaaKafkaIntegration {
     }
 
     private JsonNode serialize(AuthenticationEvent event) {
+
+        String sn = deviceService.getPort(event.subject()).annotations().value(AnnotationKeys.PORT_NAME);
+
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode authEvent = mapper.createObjectNode();
         authEvent.put(TIMESTAMP, Instant.now().toString());
         authEvent.put(DEVICE_ID, event.subject().deviceId().toString());
         authEvent.put(PORT_NUMBER, event.subject().port().toString());
+        authEvent.put(SERIAL_NUMBER, sn);
         authEvent.put(AUTHENTICATION_STATE, event.type().toString());
         return authEvent;
     }
