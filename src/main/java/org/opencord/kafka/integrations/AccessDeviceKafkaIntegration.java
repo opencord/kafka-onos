@@ -89,12 +89,12 @@ public class AccessDeviceKafkaIntegration {
 
     @Activate
     public void activate() {
-        log.info("Started");
+        log.info("Started AccessDeviceKafkaIntegration");
     }
 
     @Deactivate
     public void deactivate() {
-        log.info("Stopped");
+        log.info("Stopped AccessDeviceKafkaIntegration");
     }
 
     private void handle(AccessDeviceEvent event, String status) {
