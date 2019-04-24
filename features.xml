@@ -19,6 +19,10 @@
              description="${project.description}">
         <feature>onos-api</feature>
         <bundle>mvn:${project.groupId}/${project.artifactId}/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/aaa-api/${aaa.api.version}</bundle>
+        <bundle>mvn:${project.groupId}/dhcpl2relay-api/${dhcpl2relay.api.version}</bundle>
+        <bundle>mvn:${project.groupId}/olt-api/${olt.api.version}</bundle>
+        <bundle>mvn:${project.groupId}/sadis-api/${sadis.api.version}</bundle>
         <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/1.1.1_1</bundle>
     </feature>
 </features>

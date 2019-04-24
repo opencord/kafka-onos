@@ -24,6 +24,7 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.apache.felix.scr.annotations.ReferencePolicy;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.Port;
 import org.opencord.kafka.EventBusService;
@@ -46,6 +47,7 @@ public class AccessDeviceKafkaIntegration {
     protected EventBusService eventBusService;
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            policy = ReferencePolicy.DYNAMIC,
             bind = "bindAccessDeviceService",
             unbind = "unbindAccessDeviceService")
     protected AccessDeviceService accessDeviceService;
@@ -89,12 +91,12 @@ public class AccessDeviceKafkaIntegration {
 
     @Activate
     public void activate() {
-        log.info("Started");
+        log.info("Started AccessDeviceKafkaIntegration");
     }
 
     @Deactivate
     public void deactivate() {
-        log.info("Stopped");
+        log.info("Stopped AccessDeviceKafkaIntegration");
     }
 
     private void handle(AccessDeviceEvent event, String status) {

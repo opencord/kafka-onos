@@ -24,6 +24,7 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.apache.felix.scr.annotations.ReferencePolicy;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.device.DeviceService;
 import org.opencord.aaa.AuthenticationEvent;
@@ -50,6 +51,7 @@ public class AaaKafkaIntegration {
     protected DeviceService deviceService;
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            policy = ReferencePolicy.DYNAMIC,
             bind = "bindAuthenticationService",
             unbind = "unbindAuthenticationService")
     protected AuthenticationService authenticationService;
@@ -65,6 +67,7 @@ public class AaaKafkaIntegration {
     private static final String AUTHENTICATION_STATE = "authenticationState";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
+        log.info("bindAuthenticationService");
         if (this.authenticationService == null) {
             log.info("Binding AuthenticationService");
             this.authenticationService = authenticationService;
@@ -76,6 +79,7 @@ public class AaaKafkaIntegration {
     }
 
     protected void unbindAuthenticationService(AuthenticationService authenticationService) {
+        log.info("unbindAuthenticationService");
         if (this.authenticationService == authenticationService) {
             log.info("Unbinding AuthenticationService");
             this.authenticationService = null;
@@ -88,12 +92,12 @@ public class AaaKafkaIntegration {
 
     @Activate
     public void activate() {
-        log.info("Started");
+        log.info("Started AaaKafkaIntegration");
     }
 
     @Deactivate
     public void deactivate() {
-        log.info("Stopped");
+        log.info("Stopped AaaKafkaIntegration");
     }
 
     private void handle(AuthenticationEvent event) {
