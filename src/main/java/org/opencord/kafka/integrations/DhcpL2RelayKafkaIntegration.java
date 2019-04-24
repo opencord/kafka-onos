@@ -24,6 +24,7 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.ReferenceCardinality;
+import org.apache.felix.scr.annotations.ReferencePolicy;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.device.DeviceService;
 import org.opencord.dhcpl2relay.DhcpAllocationInfo;
@@ -51,6 +52,7 @@ public class DhcpL2RelayKafkaIntegration {
     protected DeviceService deviceService;
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            policy = ReferencePolicy.DYNAMIC,
             bind = "bindDhcpL2RelayService",
             unbind = "unbindDhcpL2RelayService")
     protected DhcpL2RelayService dhcpL2RelayService;
@@ -92,12 +94,12 @@ public class DhcpL2RelayKafkaIntegration {
 
     @Activate
     public void activate() {
-        log.info("Started");
+        log.info("Started DhcpL2RelayKafkaIntegration");
     }
 
     @Deactivate
     public void deactivate() {
-        log.info("Stopped");
+        log.info("Stopped DhcpL2RelayKafkaIntegration");
     }
 
     private void handle(DhcpL2RelayEvent event) {
