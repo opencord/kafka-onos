@@ -92,12 +92,12 @@ public class DhcpL2RelayKafkaIntegration {
 
     @Activate
     public void activate() {
-        log.info("Started");
+        log.info("Started DhcpL2RelayKafkaIntegration");
     }
 
     @Deactivate
     public void deactivate() {
-        log.info("Stopped");
+        log.info("Stopped DhcpL2RelayKafkaIntegration");
     }
 
     private void handle(DhcpL2RelayEvent event) {

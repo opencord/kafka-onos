@@ -74,9 +74,15 @@
 
         <dependency>
             <groupId>org.opencord</groupId>
-            <artifactId>aaa</artifactId>
+            <artifactId>aaa-app</artifactId>
             <version>${aaa.api.version}</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opencord</groupId>
+            <artifactId>aaa-api</artifactId>
+            <version>${aaa.api.version}</version>
         </dependency>
 
         <dependency>
@@ -88,11 +94,16 @@
 
         <dependency>
             <groupId>org.opencord</groupId>
-            <artifactId>dhcpl2relay</artifactId>
+            <artifactId>dhcpl2relay-app</artifactId>
             <version>${dhcpl2relay.api.version}</version>
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.opencord</groupId>
+            <artifactId>dhcpl2relay-api</artifactId>
+            <version>${dhcpl2relay.api.version}</version>
+        </dependency>
 
     </dependencies>
 
