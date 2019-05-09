@@ -59,6 +59,8 @@ public class KafkaIntegration implements EventBusService {
     private static final String APP_NAME = "org.opencord.kafka";
     private ApplicationId appId;
 
+    private Boolean kafkaStarted = false;
+
     @Reference(cardinality = ReferenceCardinality.MANDATORY_UNARY)
     protected CoreService coreService;
 
@@ -154,18 +156,19 @@ public class KafkaIntegration implements EventBusService {
     }
 
     private void startKafka(Properties properties) {
-        shutdownKafka();
-
-        // Kafka client doesn't play nice with the default OSGi classloader
-        // This workaround temporarily changes the thread's classloader so that
-        // the Kafka client can load the serializer classes.
-        ClassLoader original = Thread.currentThread().getContextClassLoader();
-        Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
-        try {
-            log.info("Starting Kafka producer");
-            kafkaProducer = new KafkaProducer<>(properties);
-        } finally {
-            Thread.currentThread().setContextClassLoader(original);
+        if (!kafkaStarted) {
+            // Kafka client doesn't play nice with the default OSGi classloader
+            // This workaround temporarily changes the thread's classloader so that
+            // the Kafka client can load the serializer classes.
+            ClassLoader original = Thread.currentThread().getContextClassLoader();
+            Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
+            try {
+                log.info("Starting Kafka producer");
+                kafkaProducer = new KafkaProducer<>(properties);
+                kafkaStarted = true;
+            } finally {
+                Thread.currentThread().setContextClassLoader(original);
+            }
         }
     }
 
@@ -176,6 +179,7 @@ public class KafkaIntegration implements EventBusService {
             kafkaProducer.close(0, TimeUnit.MILLISECONDS);
             kafkaProducer = null;
         }
+        kafkaStarted = false;
     }
 
     private void logException(Exception e) {
@@ -207,6 +211,7 @@ public class KafkaIntegration implements EventBusService {
             switch (event.type()) {
             case CONFIG_ADDED:
             case CONFIG_UPDATED:
+                unconfigure();
                 configure((KafkaConfig) event.config().get());
                 break;
             case CONFIG_REMOVED:
