@@ -28,7 +28,7 @@
 
     <groupId>org.opencord</groupId>
     <artifactId>kafka</artifactId>
-    <version>1.1.0-TEST</version>
+    <version>1.1.0-TEST2</version>
     <packaging>bundle</packaging>
 
     <description>Kafka integration</description>
@@ -39,7 +39,7 @@
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
-        <aaa.api.version>1.8.2</aaa.api.version>
+        <aaa.api.version>1.8.4</aaa.api.version>
         <olt.api.version>3.0.1-SNAPSHOT</olt.api.version>
         <dhcpl2relay.api.version>1.6.0-SNAPSHOT</dhcpl2relay.api.version>
     </properties>
