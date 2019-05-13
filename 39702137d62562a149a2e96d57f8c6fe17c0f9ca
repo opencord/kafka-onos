@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "963b1086_cfcf0d4c",
+        "filename": "src/main/java/org/opencord/kafka/impl/KafkaIntegration.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000068
+      },
+      "writtenOn": "2019-05-13T23:55:16Z",
+      "side": 1,
+      "message": "maybe unconfigure() here to be consistent",
+      "revId": "39702137d62562a149a2e96d57f8c6fe17c0f9ca",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
