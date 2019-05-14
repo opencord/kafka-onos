@@ -16,6 +16,24 @@
       "revId": "39702137d62562a149a2e96d57f8c6fe17c0f9ca",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d74a9cf1_6bd73242",
+        "filename": "src/main/java/org/opencord/kafka/impl/KafkaIntegration.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2019-05-14T16:51:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "963b1086_cfcf0d4c",
+      "revId": "39702137d62562a149a2e96d57f8c6fe17c0f9ca",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
