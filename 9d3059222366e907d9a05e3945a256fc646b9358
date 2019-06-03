@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46b72d7a_4666f905",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2019-06-03T21:21:11Z",
+      "side": 1,
+      "message": "why both \"sadis\" and \"dhcpl2realy\" has been updated if we only changed \"aaa\"?",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d28a38dd_7421d22c",
+        "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2019-06-03T21:21:11Z",
+      "side": 1,
+      "message": "can we move the topic close to other (authentication.events)?",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 88
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
