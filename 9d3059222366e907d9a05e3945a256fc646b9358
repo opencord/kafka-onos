@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b2e0ee64_47d44695",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000572
+      },
+      "writtenOn": "2019-06-06T05:54:50Z",
+      "side": 1,
+      "message": "Changed versions of aaa, sadis and olt. As they have been moved to newer versions, with commit comment as \"Moving to a newer snapshot to allow multicast changes\".",
+      "parentUuid": "46b72d7a_4666f905",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d28a38dd_7421d22c",
         "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
         "patchSetId": 3
