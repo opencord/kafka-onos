@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "180b6bb9_62d1ba77",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2019-06-07T16:23:40Z",
+      "side": 1,
+      "message": "Right, bu we don\u0027t want to depend on those versions yet, as they\u0027ll include some multicast related changes that are not required for SEBA 2.0. We have create a release branch called \"voltha-1.7\" that still has the current snapshots and we should stay on those for now.",
+      "parentUuid": "b2e0ee64_47d44695",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d28a38dd_7421d22c",
         "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
         "patchSetId": 3
