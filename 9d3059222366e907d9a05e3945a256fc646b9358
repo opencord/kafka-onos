@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "d4c8696a_abbfc138",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000007
+      },
+      "writtenOn": "2019-06-12T17:40:54Z",
+      "side": 1,
+      "message": "No I think it\u0027s fine to have those changes in the master branch. Simply there\u0027s no need to reference the newer snapshots of the other application.",
+      "parentUuid": "7ff15bd5_346ef3c9",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d28a38dd_7421d22c",
         "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
         "patchSetId": 3
