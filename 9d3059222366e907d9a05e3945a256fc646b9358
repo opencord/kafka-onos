@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7ff15bd5_346ef3c9",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000526
+      },
+      "writtenOn": "2019-06-12T10:27:27Z",
+      "side": 1,
+      "message": "Matteo, are you suggesting that we should commit these SEBA-37 related changes only into voltha-1.7 branch, and not master branch. If yes, how to do that while using repo upload steps; would using this voltha-1.7 branch as the base while creating feature branch would work?",
+      "parentUuid": "180b6bb9_62d1ba77",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 61
+      },
+      "revId": "9d3059222366e907d9a05e3945a256fc646b9358",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d28a38dd_7421d22c",
         "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
         "patchSetId": 3
