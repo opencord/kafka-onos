@@ -19,6 +19,7 @@ package org.opencord.kafka.integrations;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.time.Instant;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.device.DeviceService;
 import org.opencord.aaa.AuthenticationEvent;
@@ -35,7 +36,6 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
-import java.time.Instant;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -65,7 +65,7 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
 
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
     private final AuthenticationStatisticsEventListener authenticationStatisticsEventListener =
-             new InternalAuthenticationStatisticsListner();
+            new InternalAuthenticationStatisticsListner();
 
     // topics
     private static final String TOPIC = "authentication.events";
@@ -91,6 +91,7 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     private static final String UNKNOWN_SERVER_RX = "unknownServerRx";
     private static final String REQUEST_RTT_MILLIS = "requestRttMillis";
     private static final String REQUEST_RE_TX = "requestReTx";
+    private static final String TIMED_OUT_PACKETS = "timedOutPackets";
 
     protected void bindAuthenticationService(AuthenticationService incomingService) {
         bindAndAddListener(incomingService, authServiceRef, listener);
@@ -159,11 +160,12 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
         authMetricsEvent.put(UNKNOWN_SERVER_RX, event.subject().getUnknownServerRx());
         authMetricsEvent.put(REQUEST_RTT_MILLIS, event.subject().getRequestRttMilis());
         authMetricsEvent.put(REQUEST_RE_TX, event.subject().getRequestReTx());
+        authMetricsEvent.put(TIMED_OUT_PACKETS, event.subject().getTimedOutPackets());
         return authMetricsEvent;
     }
 
     private class InternalAuthenticationListener implements
-            AuthenticationEventListener {
+    AuthenticationEventListener {
         @Override
         public void event(AuthenticationEvent authenticationEvent) {
             handle(authenticationEvent);
