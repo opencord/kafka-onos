@@ -15,9 +15,8 @@
  */
 
 package org.opencord.kafka.integrations;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.time.Instant;
+
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
@@ -29,14 +28,16 @@ import org.onosproject.net.device.DeviceService;
 import org.opencord.aaa.AuthenticationEvent;
 import org.opencord.aaa.AuthenticationEventListener;
 import org.opencord.aaa.AuthenticationService;
-import org.opencord.kafka.EventBusService;
 import org.opencord.aaa.AuthenticationStatisticsEvent;
 import org.opencord.aaa.AuthenticationStatisticsEventListener;
 import org.opencord.aaa.AuthenticationStatisticsService;
+import org.opencord.kafka.EventBusService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Instant;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * Listens for AAA events and pushes them on a Kafka bus.
@@ -65,7 +66,7 @@ public class AaaKafkaIntegration {
 
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
     private final AuthenticationStatisticsEventListener authenticationStatisticsEventListener =
-             new InternalAuthenticationStatisticsListner();
+            new InternalAuthenticationStatisticsListner();
 
     // topics
     private static final String TOPIC = "authentication.events";
@@ -91,6 +92,7 @@ public class AaaKafkaIntegration {
     private static final String UNKNOWN_SERVER_RX = "unknownServerRx";
     private static final String REQUEST_RTT_MILLIS = "requestRttMillis";
     private static final String REQUEST_RE_TX = "requestReTx";
+    private static final String TIMED_OUT_PACKETS = "timedOutPackets";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
         log.info("bindAuthenticationService");
@@ -189,11 +191,12 @@ public class AaaKafkaIntegration {
         authMetricsEvent.put(UNKNOWN_SERVER_RX, event.subject().getUnknownServerRx());
         authMetricsEvent.put(REQUEST_RTT_MILLIS, event.subject().getRequestRttMilis());
         authMetricsEvent.put(REQUEST_RE_TX, event.subject().getRequestReTx());
+        authMetricsEvent.put(TIMED_OUT_PACKETS, event.subject().getTimedOutPackets());
         return authMetricsEvent;
     }
 
     private class InternalAuthenticationListener implements
-            AuthenticationEventListener {
+    AuthenticationEventListener {
         @Override
         public void event(AuthenticationEvent authenticationEvent) {
             handle(authenticationEvent);
