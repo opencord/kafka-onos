@@ -19,7 +19,6 @@ package org.opencord.kafka.integrations;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import java.time.Instant;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.device.DeviceService;
 import org.opencord.aaa.AuthenticationEvent;
@@ -28,6 +27,9 @@ import org.opencord.aaa.AuthenticationService;
 import org.opencord.aaa.AuthenticationStatisticsEvent;
 import org.opencord.aaa.AuthenticationStatisticsEventListener;
 import org.opencord.aaa.AuthenticationStatisticsService;
+import org.opencord.aaa.RadiusOperationalStatusEvent;
+import org.opencord.aaa.RadiusOperationalStatusEventListener;
+import org.opencord.aaa.RadiusOperationalStatusService;
 import org.opencord.kafka.EventBusService;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -36,6 +38,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
+import java.time.Instant;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -63,14 +66,24 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     protected volatile AuthenticationStatisticsService ignore2;
     private final AtomicReference<AuthenticationStatisticsService> authStatServiceRef = new AtomicReference<>();
 
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL,
+            policy = ReferencePolicy.DYNAMIC,
+            bind = "bindRadiusOperationalStatusService",
+            unbind = "unbindRadiusOperationalStatusService")
+    protected volatile RadiusOperationalStatusService ignore3;
+    protected final AtomicReference<RadiusOperationalStatusService> radiusOperationalStatusServiceRef
+            = new AtomicReference<>();
+
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
     private final AuthenticationStatisticsEventListener authenticationStatisticsEventListener =
             new InternalAuthenticationStatisticsListner();
+    private final RadiusOperationalStatusEventListener radiusOperationalStatusEventListener =
+            new InternalRadiusOperationalStatusEventListener();
 
     // topics
     private static final String TOPIC = "authentication.events";
     private static final String AUTHENTICATION_STATISTICS_TOPIC = "onos.aaa.stats.kpis";
-
+    private static final String RADIUS_OPERATION_STATUS_TOPIC = "radiusOperationalStatus.events";
     // auth event params
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
@@ -109,6 +122,8 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     private static final String PENDING_RES_SUPPLICANT = "pendingResSupplicant";
     private static final String RES_ID_EAP_FRAMES_RX = "resIdEapFramesRx";
 
+    private static final String OPERATIONAL_STATUS = "radiusOperationalStatus";
+
     protected void bindAuthenticationService(AuthenticationService incomingService) {
         bindAndAddListener(incomingService, authServiceRef, listener);
     }
@@ -123,6 +138,17 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
 
     protected void unbindAuthenticationStatService(AuthenticationStatisticsService outgoingService) {
         unbindAndRemoveListener(outgoingService, authStatServiceRef, authenticationStatisticsEventListener);
+    }
+
+    protected void bindRadiusOperationalStatusService(
+            RadiusOperationalStatusService radiusOperationalStatusService) {
+        bindAndAddListener(radiusOperationalStatusService, radiusOperationalStatusServiceRef,
+                radiusOperationalStatusEventListener);
+    }
+
+    protected void unbindRadiusOperationalStatusService(RadiusOperationalStatusService radiusOperationalStatusService) {
+        unbindAndRemoveListener(radiusOperationalStatusService, radiusOperationalStatusServiceRef,
+                radiusOperationalStatusEventListener);
     }
 
     @Activate
@@ -144,6 +170,11 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     private void handleStat(AuthenticationStatisticsEvent event) {
         eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeStat(event));
         log.trace("AuthenticationStatisticsEvent sent successfully");
+    }
+
+    private void handleOperationalStatus(RadiusOperationalStatusEvent event) {
+        eventBusService.send(RADIUS_OPERATION_STATUS_TOPIC, serializeOperationalStatus(event));
+        log.info("RadiusOperationalStatusEvent sent successfully");
     }
 
     private JsonNode serialize(AuthenticationEvent event) {
@@ -196,6 +227,16 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
         return authMetricsEvent;
     }
 
+    private JsonNode serializeOperationalStatus(RadiusOperationalStatusEvent event) {
+        log.info("Serializing RadiusOperationalStatusEvent");
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode authMetricsEvent = mapper.createObjectNode();
+        authMetricsEvent.put(TIMESTAMP, Instant.now().toString());
+        log.info("---OPERATIONAL_STATUS----" + event.subject());
+        authMetricsEvent.put(OPERATIONAL_STATUS, event.subject());
+        return authMetricsEvent;
+    }
+
     private class InternalAuthenticationListener implements
     AuthenticationEventListener {
         @Override
@@ -210,5 +251,14 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
         public void event(AuthenticationStatisticsEvent authenticationStatisticsEvent) {
             handleStat(authenticationStatisticsEvent);
         }
+    }
+
+    private class InternalRadiusOperationalStatusEventListener implements
+           RadiusOperationalStatusEventListener {
+        @Override
+        public void event(RadiusOperationalStatusEvent radiusOperationalStatusEvent) {
+            handleOperationalStatus(radiusOperationalStatusEvent);
+        }
+
     }
 }
