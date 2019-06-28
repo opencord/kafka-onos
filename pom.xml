@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.onosproject</groupId>
         <artifactId>onos-dependencies</artifactId>
-        <version>1.13.1</version>
+        <version>1.13.9</version>
         <relativePath></relativePath>
     </parent>
 
@@ -35,14 +35,14 @@
 
     <properties>
         <onos.app.name>org.opencord.kafka</onos.app.name>
-        <onos.version>1.13.1</onos.version>
+        <onos.version>1.13.9</onos.version>
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
-        <aaa.api.version>1.9.0-SNAPSHOT</aaa.api.version>
-        <olt.api.version>3.0.1-SNAPSHOT</olt.api.version>
-        <dhcpl2relay.api.version>1.6.0-SNAPSHOT</dhcpl2relay.api.version>
-        <sadis.api.version>3.1.0-SNAPSHOT</sadis.api.version>
+        <aaa.api.version>1.9.0</aaa.api.version>
+        <olt.api.version>3.0.1</olt.api.version>
+        <dhcpl2relay.api.version>1.6.0</dhcpl2relay.api.version>
+        <sadis.api.version>3.1.0</sadis.api.version>
     </properties>
 
     <dependencies>
