@@ -19,30 +19,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.onosproject</groupId>
-        <artifactId>onos-dependencies</artifactId>
-        <version>1.13.9</version>
-        <relativePath></relativePath>
-    </parent>
-
     <groupId>org.opencord</groupId>
     <artifactId>kafka</artifactId>
-    <version>1.1.0</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <description>Kafka integration</description>
 
     <properties>
         <onos.app.name>org.opencord.kafka</onos.app.name>
-        <onos.version>1.13.9</onos.version>
+        <onos.version>2.2.0</onos.version>
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
-        <aaa.api.version>1.9.0</aaa.api.version>
-        <olt.api.version>3.0.1</olt.api.version>
-        <dhcpl2relay.api.version>1.6.0</dhcpl2relay.api.version>
-        <sadis.api.version>3.1.0</sadis.api.version>
+        <aaa.api.version>2.0.0-SNAPSHOT</aaa.api.version>
+        <olt.api.version>4.0.0-SNAPSHOT</olt.api.version>
+        <dhcpl2relay.api.version>2.0.0-SNAPSHOT</dhcpl2relay.api.version>
+        <sadis.api.version>4.0.0-SNAPSHOT</sadis.api.version>
     </properties>
 
     <dependencies>
@@ -50,21 +43,14 @@
             <groupId>org.onosproject</groupId>
             <artifactId>onos-api</artifactId>
             <version>${onos.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.onosproject</groupId>
-            <artifactId>onos-api</artifactId>
+            <artifactId>onlab-misc</artifactId>
             <version>${onos.version}</version>
-            <classifier>tests</classifier>
-            <scope>test</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.onosproject</groupId>
-            <artifactId>onlab-junit</artifactId>
-            <version>${onos.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -77,20 +63,43 @@
             <groupId>org.opencord</groupId>
             <artifactId>aaa-api</artifactId>
             <version>${aaa.api.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.opencord</groupId>
             <artifactId>olt-api</artifactId>
             <version>${olt.api.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.opencord</groupId>
             <artifactId>dhcpl2relay-api</artifactId>
             <version>${dhcpl2relay.api.version}</version>
+            <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.component.annotations</artifactId>
+            <version>1.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -98,17 +107,51 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-scr-plugin</artifactId>
+                <version>4.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <_dsannotations-options>inherit</_dsannotations-options>
+                    </instructions>
+                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.onosproject</groupId>
                 <artifactId>onos-maven-plugin</artifactId>
-                <version>1.11</version>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <id>cfg</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>cfg</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>swagger</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>swagger</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>app</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>app</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -139,4 +182,10 @@
             </snapshots>
         </repository>
     </repositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
