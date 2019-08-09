@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f94cf13e_b922280f",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2019-08-09T17:33:40Z",
+      "side": 1,
+      "message": "Have you tested that everything works at runtime when using the 2.1 version of the plugin? There might be differences in the .oar files produced with older versions of the plugin. Also, we should leave the TODO, to make sure we use the same version of the plugin as the ONOS version declared above.",
+      "revId": "3da166ca7a98a5f3e0c351ea7707cab47e6877e0",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430f4757_009462bb",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2019-08-09T17:33:40Z",
+      "side": 1,
+      "message": "Why do you need to specify source and target language version, and why 10? My understanding of the maven-compiler-plugin is that by declaring release 11, the source and target language version will be set to 11.",
+      "revId": "3da166ca7a98a5f3e0c351ea7707cab47e6877e0",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
