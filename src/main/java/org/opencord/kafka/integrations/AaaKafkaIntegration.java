@@ -92,6 +92,13 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     private static final String REQUEST_RTT_MILLIS = "requestRttMillis";
     private static final String REQUEST_RE_TX = "requestReTx";
     private static final String TIMED_OUT_PACKETS = "timedOutPackets";
+    private static final String EAPOL_LOGOFF_RX = "eapolLogoffRx";
+    private static final String EAPOL_RES_IDENTITY_MSG_TRANS = "eapolResIdentityMsgTrans";
+    private static final String EAPOL_AUTH_SUCCESS_TRANS = "eapolAuthSuccessTrans";
+    private static final String EAPOL_AUTH_FAILURE_TRANS = "eapolAuthFailureTrans";
+    private static final String EAPOL_START_REQ_TRANS = "eapolStartReqTrans";
+    private static final String EAP_PKT_TX_AUTH_CHOOSE_EAP = "eapPktTxauthChooseEap";
+    private static final String EAPOL_TRANS_RESP_NOT_NAK = "eapolTransRespNotNak";
 
     protected void bindAuthenticationService(AuthenticationService incomingService) {
         bindAndAddListener(incomingService, authServiceRef, listener);
@@ -161,6 +168,13 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
         authMetricsEvent.put(REQUEST_RTT_MILLIS, event.subject().getRequestRttMilis());
         authMetricsEvent.put(REQUEST_RE_TX, event.subject().getRequestReTx());
         authMetricsEvent.put(TIMED_OUT_PACKETS, event.subject().getTimedOutPackets());
+        authMetricsEvent.put(EAPOL_LOGOFF_RX, event.subject().getEapolLogoffRx());
+        authMetricsEvent.put(EAPOL_RES_IDENTITY_MSG_TRANS, event.subject().getEapolResIdentityMsgTrans());
+        authMetricsEvent.put(EAPOL_AUTH_SUCCESS_TRANS, event.subject().getEapolAuthSuccessTrans());
+        authMetricsEvent.put(EAPOL_AUTH_FAILURE_TRANS, event.subject().getEapolAuthFailureTrans());
+        authMetricsEvent.put(EAPOL_START_REQ_TRANS, event.subject().getEapolStartReqTrans());
+        authMetricsEvent.put(EAP_PKT_TX_AUTH_CHOOSE_EAP, event.subject().getEapPktTxauthChooseEap());
+        authMetricsEvent.put(EAPOL_TRANS_RESP_NOT_NAK, event.subject().getEapolTransRespNotNak());
         return authMetricsEvent;
     }
 
