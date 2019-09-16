@@ -91,6 +91,15 @@ public class AaaKafkaIntegration {
     private static final String UNKNOWN_SERVER_RX = "unknownServerRx";
     private static final String REQUEST_RTT_MILLIS = "requestRttMillis";
     private static final String REQUEST_RE_TX = "requestReTx";
+    private static final String EAPOL_FRAMES_TX = "eapolFramesTx";
+    private static final String AUTH_STATE_IDLE = "authStateIdle";
+    private static final String REQUEST_ID_FRAMES_TX = "requestIdFramesTx";
+    private static final String REQUEST_EAP_FRAMES_TX = "requestEapFramesTx";
+    private static final String INVALID_PKT_TYPE = "invalidPktType";
+    private static final String INVALID_BODY_LENGTH = "invalidBodyLength";
+    private static final String VALID_EAPOL_FRAMES_RX = "validEapolFramesRx";
+    private static final String PENDING_RES_SUPPLICANT = "pendingResSupplicant";
+    private static final String RES_ID_EAP_FRAMES_RX = "resIdEapFramesRx";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
         log.info("bindAuthenticationService");
@@ -189,6 +198,15 @@ public class AaaKafkaIntegration {
         authMetricsEvent.put(UNKNOWN_SERVER_RX, event.subject().getUnknownServerRx());
         authMetricsEvent.put(REQUEST_RTT_MILLIS, event.subject().getRequestRttMilis());
         authMetricsEvent.put(REQUEST_RE_TX, event.subject().getRequestReTx());
+        authMetricsEvent.put(EAPOL_FRAMES_TX, event.subject().getEapolFramesTx());
+        authMetricsEvent.put(AUTH_STATE_IDLE, event.subject().getAuthStateIdle());
+        authMetricsEvent.put(REQUEST_ID_FRAMES_TX, event.subject().getRequestIdFramesTx());
+        authMetricsEvent.put(REQUEST_EAP_FRAMES_TX, event.subject().getReqEapFramesTx());
+        authMetricsEvent.put(INVALID_PKT_TYPE, event.subject().getInvalidPktType());
+        authMetricsEvent.put(INVALID_BODY_LENGTH, event.subject().getInvalidBodyLength());
+        authMetricsEvent.put(VALID_EAPOL_FRAMES_RX, event.subject().getValidEapolFramesRx());
+        authMetricsEvent.put(PENDING_RES_SUPPLICANT, event.subject().getPendingResSupp());
+        authMetricsEvent.put(RES_ID_EAP_FRAMES_RX, event.subject().getEapolattrIdentity());
         return authMetricsEvent;
     }
 
