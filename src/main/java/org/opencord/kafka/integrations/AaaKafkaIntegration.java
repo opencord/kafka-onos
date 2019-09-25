@@ -35,6 +35,10 @@ import org.opencord.aaa.AuthenticationStatisticsEventListener;
 import org.opencord.aaa.AuthenticationStatisticsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.opencord.aaa.AaaMachineStatisticsEvent;
+import org.opencord.aaa.AaaMachineStatisticsEventListener;
+import org.opencord.aaa.AaaMachineStatisticsService;
+import org.opencord.aaa.AaaSupplicantMachineStats;
 
 import java.time.Instant;
 
@@ -63,9 +67,17 @@ public class AaaKafkaIntegration {
             unbind = "unbindAuthenticationStatService")
     protected AuthenticationStatisticsService authenticationStatisticsService;
 
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY,
+            policy = ReferencePolicy.DYNAMIC,
+            bind = "bindAaaMachineStatisticsService",
+            unbind = "unbindAaaMachineStatisticsService")
+    protected AaaMachineStatisticsService machineStatisticsService;
+
     private final AuthenticationEventListener listener = new InternalAuthenticationListener();
     private final AuthenticationStatisticsEventListener authenticationStatisticsEventListener =
              new InternalAuthenticationStatisticsListner();
+    private final AaaMachineStatisticsEventListener machineStatisticsEventListener =
+            new InternalAaaMachineStatisticsListner();
 
     // topics
     private static final String TOPIC = "authentication.events";
@@ -91,6 +103,20 @@ public class AaaKafkaIntegration {
     private static final String UNKNOWN_SERVER_RX = "unknownServerRx";
     private static final String REQUEST_RTT_MILLIS = "requestRttMillis";
     private static final String REQUEST_RE_TX = "requestReTx";
+
+    //Supplicant machine stats event params
+    private static final String SESSION_ID = "sessionId";
+    private static final String SESSION_NAME = "sessionName";
+    private static final String MAC_ADDRESS = "macAddress";
+    private static final String EAPOL_TYPE = "eapolType";
+    private static final String SESSION_DURATION = "sessionDuration";
+    private static final String TOTAL_FRAMES_RX = "totalFramesRx";
+    private static final String TOTAL_FRAMES_TX = "totalFramesTx";
+    private static final String TOTAL_PACKETS_RX = "totalPacketsRx";
+    private static final String TOTAL_PACKETS_TX = "totalFramesTx";
+    private static final String SESSION_TERMINATE_REASON = "sessionTerminateReason";
+    private static final String TOTAL_OCTETS_TX = "totalOctetsTx";
+    private static final String TOTAL_OCTETS_RX = "totalOctetsRx";
 
     protected void bindAuthenticationService(AuthenticationService authenticationService) {
         log.info("bindAuthenticationService");
@@ -140,6 +166,30 @@ public class AaaKafkaIntegration {
         }
     }
 
+    protected void bindAaaMachineStatisticsService(AaaMachineStatisticsService machineStatisticsService) {
+        log.info("bindAaaMachineStatisticsService");
+        if (this.machineStatisticsService == null) {
+            log.info("Binding AaaMachineStatisticsService");
+            this.machineStatisticsService = machineStatisticsService;
+            log.info("Adding listener on AaaMachineStatisticsService");
+            machineStatisticsService.addListener(machineStatisticsEventListener);
+        } else {
+            log.warn("Trying to bind AaaMachineStatisticsService but it is already bound");
+        }
+    }
+
+    protected void unbindAaaMachineStatisticsService(AaaMachineStatisticsService machineStatisticsService) {
+        log.info("unbindAaaMachineStatisticsService");
+        if (this.machineStatisticsService == machineStatisticsService) {
+            log.info("Unbinding AaaMachineStatisticsService");
+            this.machineStatisticsService = null;
+            log.info("Removing listener on AaaMachineStatisticsService");
+            machineStatisticsService.removeListener(machineStatisticsEventListener);
+        } else {
+            log.warn("Trying to unbind AaaMachineStatisticsService but it is already unbound");
+        }
+    }
+
     @Activate
     public void activate() {
         log.info("Started AaaKafkaIntegration");
@@ -157,6 +207,11 @@ public class AaaKafkaIntegration {
     private void handleStat(AuthenticationStatisticsEvent event) {
         eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeStat(event));
         log.info("AuthenticationStatisticsEvent sent successfully");
+    }
+
+    private void handleMachineStat(AaaMachineStatisticsEvent machineStatEvent) {
+        eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeMachineStat(machineStatEvent));
+        log.info("MachineStatisticsEvent sent successfully");
     }
 
     private JsonNode serialize(AuthenticationEvent event) {
@@ -192,6 +247,39 @@ public class AaaKafkaIntegration {
         return authMetricsEvent;
     }
 
+    private JsonNode serializeMachineStat(AaaMachineStatisticsEvent machineStatEvent) {
+        log.info("Serializing AuthenticationStatisticsEvent");
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode machineStat = mapper.createObjectNode();
+        AaaSupplicantMachineStats subject = machineStatEvent.subject();
+        machineStat.put(TIMESTAMP, Instant.now().toString());
+        machineStat.put(SESSION_ID, subject.getSessionId());
+        machineStat.put(SESSION_NAME, subject.getSessionName());
+        machineStat.put(MAC_ADDRESS, subject.getSrcMacAddress());
+        machineStat.put(SESSION_DURATION, subject.getSessionDuration());
+        machineStat.put(EAPOL_TYPE, subject.getEapolType());
+        machineStat.put(TOTAL_FRAMES_RX, subject.getTotalFramesReceived());
+        machineStat.put(TOTAL_FRAMES_TX, subject.getTotalFramesSent());
+        machineStat.put(TOTAL_PACKETS_RX, subject.getTotalFramesReceived());
+        machineStat.put(TOTAL_PACKETS_TX, subject.getTotalFramesSent());
+        machineStat.put(TOTAL_OCTETS_RX, subject.getTotalOctetRecieved());
+        machineStat.put(TOTAL_OCTETS_TX, subject.getTotalOctetSent());
+        machineStat.put(SESSION_TERMINATE_REASON, subject.getSessionTerminateReason());
+        log.debug(SESSION_ID + " - " + subject.getSessionId());
+        log.debug(SESSION_NAME + " - " + subject.getSessionName());
+        log.debug(MAC_ADDRESS + " - " + subject.getSrcMacAddress());
+        log.debug(SESSION_DURATION + " - " + subject.getSessionDuration());
+        log.debug(EAPOL_TYPE + " - " + subject.getEapolType());
+        log.debug(TOTAL_FRAMES_RX + " - " + subject.getTotalFramesReceived());
+        log.debug(TOTAL_FRAMES_TX + " - " + subject.getTotalFramesSent());
+        log.debug(TOTAL_PACKETS_RX + " - " + subject.getTotalFramesReceived());
+        log.debug(TOTAL_PACKETS_TX + " - " + subject.getTotalFramesSent());
+        log.debug(TOTAL_OCTETS_RX + " - " + subject.getTotalOctetRecieved());
+        log.debug(TOTAL_OCTETS_TX + " - " + subject.getTotalOctetSent());
+        log.debug(SESSION_TERMINATE_REASON + " - " + subject.getSessionTerminateReason());
+        return machineStat;
+    }
+
     private class InternalAuthenticationListener implements
             AuthenticationEventListener {
         @Override
@@ -205,6 +293,14 @@ public class AaaKafkaIntegration {
         @Override
         public void event(AuthenticationStatisticsEvent authenticationStatisticsEvent) {
             handleStat(authenticationStatisticsEvent);
+        }
+    }
+
+    private class InternalAaaMachineStatisticsListner implements AaaMachineStatisticsEventListener {
+
+        @Override
+        public void event(AaaMachineStatisticsEvent machineStatEvent) {
+            handleMachineStat(machineStatEvent);
         }
     }
 }
