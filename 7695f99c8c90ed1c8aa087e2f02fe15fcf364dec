@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d052e970_4942820f",
+        "filename": "src/main/java/org/opencord/kafka/integrations/AaaKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000438
+      },
+      "writtenOn": "2019-09-27T16:19:38Z",
+      "side": 1,
+      "message": "I know I am showing my age or more cpu/memory availability when I learned to code but... you are calling the method machineStatEvent.subject() 24 times.  Why not define a local reference once i.e. subject\u003dmachineStatEvent.subject(); and subsequently use the local reference i.e. subject.getSessionId();  1. It\u0027s cheaper and 2. It\u0027s easier to read",
+      "revId": "7695f99c8c90ed1c8aa087e2f02fe15fcf364dec",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
