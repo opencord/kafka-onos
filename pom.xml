@@ -28,7 +28,7 @@
 
     <groupId>org.opencord</groupId>
     <artifactId>kafka</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <description>Kafka integration</description>
@@ -139,4 +139,10 @@
             </snapshots>
         </repository>
     </repositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
