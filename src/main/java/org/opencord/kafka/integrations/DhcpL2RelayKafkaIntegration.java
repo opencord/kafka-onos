@@ -52,7 +52,7 @@ public class DhcpL2RelayKafkaIntegration extends AbstractKafkaIntegration {
             policy = ReferencePolicy.DYNAMIC,
             bind = "bindDhcpL2RelayService",
             unbind = "unbindDhcpL2RelayService")
-    volatile protected DhcpL2RelayService ignore;
+    protected volatile DhcpL2RelayService ignore;
     private final AtomicReference<DhcpL2RelayService> dhcpL2RelayServiceRef = new AtomicReference<>();
 
     private final DhcpL2RelayListener listener = new InternalDhcpL2RelayListener();
