@@ -156,7 +156,7 @@ public class AaaKafkaIntegration {
 
     private void handleStat(AuthenticationStatisticsEvent event) {
         eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeStat(event));
-        log.info("AuthenticationStatisticsEvent sent successfully");
+        log.trace("AuthenticationStatisticsEvent sent successfully");
     }
 
     private JsonNode serialize(AuthenticationEvent event) {
@@ -173,7 +173,7 @@ public class AaaKafkaIntegration {
     }
 
     private JsonNode serializeStat(AuthenticationStatisticsEvent event) {
-        log.info("Serializing AuthenticationStatisticsEvent");
+        log.trace("Serializing AuthenticationStatisticsEvent");
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode authMetricsEvent = mapper.createObjectNode();
         authMetricsEvent.put(TIMESTAMP, Instant.now().toString());
