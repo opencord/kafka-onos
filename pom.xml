@@ -41,7 +41,7 @@
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
         <aaa.api.version>1.10.0-SNAPSHOT</aaa.api.version>
         <olt.api.version>3.0.1</olt.api.version>
-        <dhcpl2relay.api.version>1.6.0</dhcpl2relay.api.version>
+        <dhcpl2relay.api.version>1.6.2-SNAPSHOT</dhcpl2relay.api.version>
         <sadis.api.version>3.1.0</sadis.api.version>
     </properties>
 
