@@ -1,0 +1,7 @@
+Code-Review+2: Saurav Das <sauravdas@alumni.stanford.edu>
+Verified+1: Jenkins Jenkins <do-not-reply@opencord.org>
+Submitted-by: Matteo Scandolo <teo@opennetworking.org>
+Submitted-at: Thu, 05 Dec 2019 23:00:04 +0000
+Reviewed-on: https://gerrit.opencord.org/16430
+Project: kafka-onos
+Branch: refs/heads/master
