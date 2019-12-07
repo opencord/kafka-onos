@@ -40,6 +40,7 @@
         <aaa.api.version>2.0.0</aaa.api.version>
         <olt.api.version>4.0.0</olt.api.version>
         <dhcpl2relay.api.version>2.0.0</dhcpl2relay.api.version>
+        <bng.api.version>1.0-SNAPSHOT</bng.api.version>
         <sadis.api.version>4.0.1</sadis.api.version>
     </properties>
 
@@ -88,6 +89,13 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opencord</groupId>
+            <artifactId>bng-api</artifactId>
+            <version>${bng.api.version}</version>
             <scope>provided</scope>
         </dependency>
 
