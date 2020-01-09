@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4b2c00d_ef933ef8",
+        "filename": "src/main/java/org/opencord/kafka/integrations/BngStatsKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-01-09T18:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05ef400_8e8759d5",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "12e7194103b5c8ab8a7b37e803459469a64873e9",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b774c590_24a806c1",
         "filename": "src/main/java/org/opencord/kafka/integrations/BngStatsKafkaIntegration.java",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-18T01:22:05Z",
       "side": 1,
       "message": "I don\u0027t any specific issue to bring up here, but it doesn\u0027t look like a good idea to stream -1 values. Can we achieve the same behavior in the Prometheus exporter by not adding the JSON node at all when the counter value is not supported/found in the stats event?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 68
+      },
+      "revId": "12e7194103b5c8ab8a7b37e803459469a64873e9",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "859c3f26_36790d55",
+        "filename": "src/main/java/org/opencord/kafka/integrations/BngStatsKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-01-09T18:07:59Z",
+      "side": 1,
+      "message": "Done\nNow, if the JSON node is not present it will not be exported by the Prometheus exported (see kafka-topic-exporter patch).",
+      "parentUuid": "b774c590_24a806c1",
       "range": {
         "startLine": 156,
         "startChar": 0,
