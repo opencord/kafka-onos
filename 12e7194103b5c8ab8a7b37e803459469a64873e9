@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fb11c2ee_a78230ad",
+        "filename": "src/main/java/org/opencord/kafka/integrations/PppoeKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-01-09T18:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2742cfae_972b96da",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 34
+      },
+      "revId": "12e7194103b5c8ab8a7b37e803459469a64873e9",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2910a77_4c0bab13",
         "filename": "src/main/java/org/opencord/kafka/integrations/PppoeKafkaIntegration.java",
         "patchSetId": 6
@@ -130,6 +154,30 @@
       "writtenOn": "2019-12-18T01:22:05Z",
       "side": 1,
       "message": "Same comment about dynamic binding",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 60
+      },
+      "revId": "12e7194103b5c8ab8a7b37e803459469a64873e9",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4697460_cde64171",
+        "filename": "src/main/java/org/opencord/kafka/integrations/PppoeKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-01-09T18:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2910a77_4c0bab13",
       "range": {
         "startLine": 56,
         "startChar": 4,
