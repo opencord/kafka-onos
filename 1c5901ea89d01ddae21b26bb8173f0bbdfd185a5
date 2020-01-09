@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec7a81f_909596b8",
+        "filename": "src/main/java/org/opencord/kafka/integrations/BngStatsKafkaIntegration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2020-01-09T17:47:34Z",
+      "side": 1,
+      "message": "Is this comment still valid? I don\u0027t see any -1",
+      "range": {
+        "startLine": 163,
+        "startChar": 57,
+        "endLine": 163,
+        "endChar": 94
+      },
+      "revId": "1c5901ea89d01ddae21b26bb8173f0bbdfd185a5",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4d951a_4f50fa46",
+        "filename": "src/main/java/org/opencord/kafka/integrations/PppoeKafkaIntegration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2020-01-09T17:47:34Z",
+      "side": 1,
+      "message": "This reference should be optional/dynamic as for BngStatsService in the other integration component",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 60
+      },
+      "revId": "1c5901ea89d01ddae21b26bb8173f0bbdfd185a5",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
