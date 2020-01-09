@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cdef72d_a37952fe",
+        "filename": "pom.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000381
+      },
+      "writtenOn": "2020-01-09T20:56:56Z",
+      "side": 1,
+      "message": "Setting this to 4.0.1-SNAPSHOT should fix the issue seen in Jenkins. For some reason, we never published snapshots for 4.0.0",
+      "range": {
+        "startLine": 44,
+        "startChar": 27,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "619f13c30110be815b8361ec2c3722445e3cf8c1",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
