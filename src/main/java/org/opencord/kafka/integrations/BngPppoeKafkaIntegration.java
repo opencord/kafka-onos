@@ -40,6 +40,16 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component(immediate = true)
 public class BngPppoeKafkaIntegration extends AbstractKafkaIntegration {
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY)
+    protected EventBusService eventBusService;
+
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL,
+            policy = ReferencePolicy.DYNAMIC,
+            bind = "bindPppoeBngControl",
+            unbind = "unbindPppoeBngControl")
+    protected volatile PppoeBngControlHandler ignore;
+    private final AtomicReference<PppoeBngControlHandler> pppoeBngControlRef = new AtomicReference<>();
+
     private static final String TOPIC_PPPOE = "bng.pppoe";
     private static final String TIMESTAMP = "timestamp";
     private static final String EVENT_TYPE = "eventType";
@@ -51,17 +61,6 @@ public class BngPppoeKafkaIntegration extends AbstractKafkaIntegration {
     private static final String SESSION_ID = "sessionId";
 
     private final PppoeEventListener pppoeEventListener = new InternalPppoeListener();
-
-    private final AtomicReference<PppoeBngControlHandler> pppoeBngControlRef = new AtomicReference<>();
-
-    @Reference(cardinality = ReferenceCardinality.MANDATORY)
-    protected EventBusService eventBusService;
-
-    @Reference(cardinality = ReferenceCardinality.OPTIONAL,
-            policy = ReferencePolicy.DYNAMIC,
-            bind = "bindPppoeBngControl",
-            unbind = "unbindPppoeBngControl")
-    protected volatile PppoeBngControlHandler pppoeBngControlHandler;
 
     protected void bindPppoeBngControl(PppoeBngControlHandler incomingService) {
         bindAndAddListener(incomingService, pppoeBngControlRef, pppoeEventListener);
