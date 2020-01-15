@@ -46,12 +46,22 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component(immediate = true)
 public class BngStatsKafkaIntegration extends AbstractKafkaIntegration {
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY)
+    protected EventBusService eventBusService;
+
+    @Reference(cardinality = ReferenceCardinality.OPTIONAL,
+            policy = ReferencePolicy.DYNAMIC,
+            bind = "bindBngStatsService",
+            unbind = "unbindBngStatsService")
+    protected volatile BngStatsService ignore;
+    private final AtomicReference<BngStatsService> bngStatsServiceRef = new AtomicReference<>();
+
     private static final String TOPIC_STATS = "bng.stats";
     private static final String SUBSCRIBER_S_TAG = "sTag";
     private static final String SUBSCRIBER_C_TAG = "cTag";
 
-    private static final String UP_TX_BYTES = "upTermBytes";
-    private static final String UP_TX_PACKETS = "upTermPackets";
+    private static final String UP_TX_BYTES = "upTxBytes";
+    private static final String UP_TX_PACKETS = "upTxPackets";
 
     private static final String UP_RX_BYTES = "upRxBytes";
     private static final String UP_RX_PACKETS = "upRxPackets";
@@ -91,18 +101,6 @@ public class BngStatsKafkaIntegration extends AbstractKafkaIntegration {
     private static final String PPPOE_SESSION_ID = "pppoeSessionId";
 
     private final BngStatsEventListener statsListener = new InternalStatsListener();
-
-    private final AtomicReference<BngStatsService> bngStatsServiceRef = new AtomicReference<>();
-
-    @Reference(cardinality = ReferenceCardinality.OPTIONAL,
-            policy = ReferencePolicy.DYNAMIC,
-            bind = "bindBngStatsService",
-            unbind = "unbindBngStatsService")
-    protected volatile BngStatsService bngStatsService;
-
-    @Reference(cardinality = ReferenceCardinality.MANDATORY)
-    protected EventBusService eventBusService;
-
 
     protected void bindBngStatsService(BngStatsService incomingService) {
         bindAndAddListener(incomingService, bngStatsServiceRef, statsListener);
