@@ -1,0 +1,7 @@
+Code-Review+2: Daniele Moro <daniele@opennetworking.org>
+Verified+1: Jenkins Jenkins <do-not-reply@opencord.org>
+Submitted-by: Daniele Moro <daniele@opennetworking.org>
+Submitted-at: Thu, 30 Jan 2020 00:16:16 +0000
+Reviewed-on: https://gerrit.opencord.org/17257
+Project: kafka-onos
+Branch: refs/heads/master
