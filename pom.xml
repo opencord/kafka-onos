@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.onosproject</groupId>
         <artifactId>onos-dependencies</artifactId>
-        <version>1.13.9</version>
+        <version>1.13.10</version>
         <relativePath></relativePath>
     </parent>
 
@@ -35,7 +35,7 @@
 
     <properties>
         <onos.app.name>org.opencord.kafka</onos.app.name>
-        <onos.version>1.13.9</onos.version>
+        <onos.version>1.13.10</onos.version>
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
@@ -123,7 +123,7 @@
         <repository>
             <id>central</id>
             <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
+            <url>https://repo.maven.apache.org/maven2</url>
             <layout>default</layout>
             <snapshots>
                 <enabled>false</enabled>
