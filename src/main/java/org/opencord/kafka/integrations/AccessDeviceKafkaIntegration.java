@@ -20,6 +20,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.onosproject.net.AnnotationKeys;
+import org.onosproject.net.Device;
+import org.onosproject.net.DeviceId;
+import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.Port;
 import org.opencord.kafka.EventBusService;
 import org.opencord.olt.AccessDeviceEvent;
@@ -48,6 +51,9 @@ public class AccessDeviceKafkaIntegration extends AbstractKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY)
     protected EventBusService eventBusService;
 
+    @Reference(cardinality = ReferenceCardinality.MANDATORY)
+    protected DeviceService deviceService;
+
     @Reference(cardinality = ReferenceCardinality.OPTIONAL,
             policy = ReferencePolicy.DYNAMIC,
             bind = "bindAccessDeviceService",
@@ -65,6 +71,7 @@ public class AccessDeviceKafkaIntegration extends AbstractKafkaIntegration {
     private static final String PORT_NUMBER = "portNumber";  // uni port
     private static final String DEVICE_ID = "deviceId";  // OLT OpenFlow Id
     private static final String TIMESTAMP = "timestamp";
+    private static final String OLT_SERIAL_NUMBER = "oltSerialNumber"; // OLT Serial Number
 
     // statuses
     private static final String ACTIVATED = "activated";
@@ -104,6 +111,11 @@ public class AccessDeviceKafkaIntegration extends AbstractKafkaIntegration {
         onuNode.put(SERIAL_NUMBER, serialNumber);
         onuNode.put(PORT_NUMBER, port.number().toString());
         onuNode.put(DEVICE_ID, port.element().id().toString());
+
+        Device d = deviceService.getDevice((DeviceId) port.element().id());
+        if (d != null) {
+            onuNode.put(OLT_SERIAL_NUMBER, d.serialNumber());
+        }
 
         return onuNode;
     }
