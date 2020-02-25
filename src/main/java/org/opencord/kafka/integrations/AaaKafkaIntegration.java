@@ -91,7 +91,7 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     private final RadiusOperationalStatusEventListener radiusOperationalStatusEventListener =
             new InternalRadiusOperationalStatusEventListener();
     private final AaaMachineStatisticsEventListener machineStatisticsEventListener =
-            new InternalAaaMachineStatisticsListner();
+            new InternalAaaMachineStatisticsListener();
 
     // topics
     private static final String TOPIC = "authentication.events";
@@ -204,17 +204,23 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
 
     private void handleStat(AuthenticationStatisticsEvent event) {
         eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeStat(event));
-        log.trace("AuthenticationStatisticsEvent sent successfully");
+        if (log.isTraceEnabled()) {
+            log.trace("AuthenticationStatisticsEvent sent successfully");
+        }
     }
 
     private void handleOperationalStatus(RadiusOperationalStatusEvent event) {
         eventBusService.send(RADIUS_OPERATION_STATUS_TOPIC, serializeOperationalStatus(event));
-        log.info("RadiusOperationalStatusEvent sent successfully");
+        if (log.isTraceEnabled()) {
+            log.trace("RadiusOperationalStatusEvent sent successfully");
+        }
     }
 
     private void handleMachineStat(AaaMachineStatisticsEvent machineStatEvent) {
         eventBusService.send(AUTHENTICATION_STATISTICS_TOPIC, serializeMachineStat(machineStatEvent));
-        log.info("MachineStatisticsEvent sent successfully");
+        if (log.isTraceEnabled()) {
+            log.trace("MachineStatisticsEvent sent successfully");
+        }
     }
 
     private JsonNode serialize(AuthenticationEvent event) {
@@ -231,7 +237,9 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     }
 
     private JsonNode serializeStat(AuthenticationStatisticsEvent event) {
-        log.trace("Serializing AuthenticationStatisticsEvent");
+        if (log.isTraceEnabled()) {
+            log.trace("Serializing AuthenticationStatisticsEvent");
+        }
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode authMetricsEvent = mapper.createObjectNode();
         authMetricsEvent.put(TIMESTAMP, Instant.now().toString());
@@ -268,17 +276,20 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
     }
 
     private JsonNode serializeOperationalStatus(RadiusOperationalStatusEvent event) {
-        log.info("Serializing RadiusOperationalStatusEvent");
+        if (log.isTraceEnabled()) {
+            log.trace("Serializing RadiusOperationalStatusEvent: {}", event.subject());
+        }
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode authMetricsEvent = mapper.createObjectNode();
         authMetricsEvent.put(TIMESTAMP, Instant.now().toString());
-        log.info("---OPERATIONAL_STATUS----" + event.subject());
         authMetricsEvent.put(OPERATIONAL_STATUS, event.subject());
         return authMetricsEvent;
     }
 
     private JsonNode serializeMachineStat(AaaMachineStatisticsEvent machineStatEvent) {
-        log.info("Serializing AuthenticationStatisticsEvent");
+        if (log.isTraceEnabled()) {
+            log.trace("Serializing AuthenticationStatisticsEvent");
+        }
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode machineStat = mapper.createObjectNode();
         AaaSupplicantMachineStats subject = machineStatEvent.subject();
@@ -334,7 +345,7 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
         }
     }
 
-    private class InternalAaaMachineStatisticsListner implements AaaMachineStatisticsEventListener {
+    private class InternalAaaMachineStatisticsListener implements AaaMachineStatisticsEventListener {
 
         @Override
         public void event(AaaMachineStatisticsEvent machineStatEvent) {
