@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c62fc47_351815ad",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-03T10:47:51Z",
+      "side": 1,
+      "message": "this is not properly formatted, a ctrl_alt_l in IntelliJ will do that for you, otherwise check other Javadoc.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "fd5df0e452c0679a15ad8ec4da20ec9dc47c74e7",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
