@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a6e8e47_1849d1fa",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-03T14:30:31Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "992a35ef4ab9f2594c1da16a9077d461101422d0",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
