@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "d2f931a5_0b9d2d97",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-03T07:02:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29861441_f387a196",
+      "revId": "b93995f28a8dcf3feed10c4da8c89991fa522f82",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "208f06eb_05f69ad5",
         "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
         "patchSetId": 1
@@ -65,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "004e4f12_f91dc3fd",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-03T07:02:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "208f06eb_05f69ad5",
+      "range": {
+        "startLine": 49,
+        "startChar": 50,
+        "endLine": 49,
+        "endChar": 57
+      },
+      "revId": "b93995f28a8dcf3feed10c4da8c89991fa522f82",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b53a4034_a97bac8b",
         "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
         "patchSetId": 1
@@ -76,6 +118,30 @@
       "writtenOn": "2020-03-02T10:57:51Z",
       "side": 1,
       "message": "this shoudl not be done as the bidn/unbind happens automatically",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 74
+      },
+      "revId": "b93995f28a8dcf3feed10c4da8c89991fa522f82",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f286a2_a3dbf85c",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-03T07:02:46Z",
+      "side": 1,
+      "message": "I was refering to AaaKafkaIntegration class while creating Mcast integration. \nI have removed the unbind method for mcast from deactivate method.",
+      "parentUuid": "b53a4034_a97bac8b",
       "range": {
         "startLine": 78,
         "startChar": 8,
