@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60e4d833_78ea4d4e",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-06T15:19:24Z",
+      "side": 1,
+      "message": "I believe that you can extend the AbstractKafkaIntegration",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "beef461d98662fe1d0837ccf3dc00e2bff69d673",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "363468c9_50066079",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-06T15:19:24Z",
+      "side": 1,
+      "message": "why do you need this ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "beef461d98662fe1d0837ccf3dc00e2bff69d673",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
