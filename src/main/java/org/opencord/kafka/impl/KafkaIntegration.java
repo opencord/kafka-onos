@@ -38,6 +38,7 @@ import org.slf4j.Logger;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
@@ -57,7 +58,7 @@ public class KafkaIntegration implements EventBusService {
     private static final String APP_NAME = "org.opencord.kafka";
     private ApplicationId appId;
 
-    private Boolean kafkaStarted = false;
+    private final AtomicBoolean kafkaStarted = new AtomicBoolean(false);
 
     @Reference(cardinality = ReferenceCardinality.MANDATORY)
     protected CoreService coreService;
@@ -154,30 +155,34 @@ public class KafkaIntegration implements EventBusService {
     }
 
     private void startKafka(Properties properties) {
-        if (!kafkaStarted) {
-            // Kafka client doesn't play nice with the default OSGi classloader
-            // This workaround temporarily changes the thread's classloader so that
-            // the Kafka client can load the serializer classes.
-            ClassLoader original = Thread.currentThread().getContextClassLoader();
-            Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
-            try {
-                log.info("Starting Kafka producer");
-                kafkaProducer = new KafkaProducer<>(properties);
-                kafkaStarted = true;
-            } finally {
-                Thread.currentThread().setContextClassLoader(original);
+        synchronized (kafkaStarted) {
+            if (!kafkaStarted.get()) {
+                // Kafka client doesn't play nice with the default OSGi classloader
+                // This workaround temporarily changes the thread's classloader so that
+                // the Kafka client can load the serializer classes.
+                ClassLoader original = Thread.currentThread().getContextClassLoader();
+                Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
+                try {
+                    log.info("Starting Kafka producer");
+                    kafkaProducer = new KafkaProducer<>(properties);
+                    kafkaStarted.set(true);
+                } finally {
+                    Thread.currentThread().setContextClassLoader(original);
+                }
             }
         }
     }
 
     private void shutdownKafka() {
-        if (kafkaProducer != null) {
-            log.info("Shutting down Kafka producer");
-            kafkaProducer.flush();
-            kafkaProducer.close(0, TimeUnit.MILLISECONDS);
-            kafkaProducer = null;
+        synchronized (kafkaStarted) {
+            if (kafkaProducer != null) {
+                log.info("Shutting down Kafka producer");
+                kafkaProducer.flush();
+                kafkaProducer.close(0, TimeUnit.MILLISECONDS);
+                kafkaProducer = null;
+            }
+            kafkaStarted.set(false);
         }
-        kafkaStarted = false;
     }
 
     private void logException(Exception e) {
