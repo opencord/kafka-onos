@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bf3d750_3d1ced34",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-03-09T21:03:50Z",
+      "side": 1,
+      "message": "Is there a particular reason to use a more recent version of the bundle?",
+      "range": {
+        "startLine": 65,
+        "startChar": 21,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "3fa86031a658db2377b313b6f2cb48562f8d6c2c",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
