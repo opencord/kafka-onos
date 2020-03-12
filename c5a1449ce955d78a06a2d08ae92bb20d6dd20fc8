@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69233758_fc625272",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-12T16:14:09Z",
+      "side": 1,
+      "message": "here you can use directly the methods exposed by the superclass. Or is there a specific reason for not doing that ?",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 5
+      },
+      "revId": "c5a1449ce955d78a06a2d08ae92bb20d6dd20fc8",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
