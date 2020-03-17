@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c9b86a6_26c2c39b",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2020-03-17T03:42:29Z",
+      "side": 1,
+      "message": "probably not a lot of utility to this log - you are already logging in handleStat()",
+      "revId": "8eca8183a95a766b7cdb6d69f7cfaee5d576ac94",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
