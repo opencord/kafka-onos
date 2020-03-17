@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eaf6bd7_5534a0a6",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2020-03-17T22:24:13Z",
+      "side": 1,
+      "message": "It is probably better to omit the field if there is no value rather than put the field with an empty string value.",
+      "range": {
+        "startLine": 101,
+        "startChar": 104,
+        "endLine": 101,
+        "endChar": 106
+      },
+      "revId": "24c46cdea67a02c9483ea9eb37bd70ef2104a367",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc551fa2_6f581a1f",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2020-03-17T22:24:13Z",
+      "side": 1,
+      "message": "I don\u0027t think this ternary operation is needed - you can probably just do stats.getVlanId().toShort()",
+      "range": {
+        "startLine": 103,
+        "startChar": 32,
+        "endLine": 104,
+        "endChar": 72
+      },
+      "revId": "24c46cdea67a02c9483ea9eb37bd70ef2104a367",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
