@@ -140,6 +140,30 @@
       "revId": "4bc562cddb05b424eefb4d0584710d7b7da5d30b",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e25691f_46f6cb1b",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-17T14:26:52Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "800eca12_a4a7017f",
+      "range": {
+        "startLine": 102,
+        "startChar": 60,
+        "endLine": 102,
+        "endChar": 97
+      },
+      "revId": "4bc562cddb05b424eefb4d0584710d7b7da5d30b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
