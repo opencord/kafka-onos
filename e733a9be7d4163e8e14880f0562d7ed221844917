@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fc8924d_ae8ff3d2",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2020-03-17T03:39:47Z",
+      "side": 1,
+      "message": "It would be better to add all fields as first-class JSON fields rather than serializing to string.\n\nAlso it would be better to have a list of stats entries in the JSON format rather than using keys which depend on the data . This format is not easy to parse because the receiver doesn\u0027t know what the keys are going to be.",
+      "revId": "e733a9be7d4163e8e14880f0562d7ed221844917",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
