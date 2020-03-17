@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b83e4bb_1ccfe27a",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-17T14:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcc01ac0_87bc6451",
+      "range": {
+        "startLine": 100,
+        "startChar": 105,
+        "endLine": 100,
+        "endChar": 109
+      },
+      "revId": "4bc562cddb05b424eefb4d0584710d7b7da5d30b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c68d007_4a122454",
         "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ece07e30_012910e9",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-17T14:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c68d007_4a122454",
+      "range": {
+        "startLine": 101,
+        "startChar": 108,
+        "endLine": 101,
+        "endChar": 112
+      },
+      "revId": "4bc562cddb05b424eefb4d0584710d7b7da5d30b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bf3c13b_29377132",
         "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2020-03-17T13:37:11Z",
       "side": 1,
       "message": "avoid using .toString here. JSON can handle short",
+      "range": {
+        "startLine": 102,
+        "startChar": 60,
+        "endLine": 102,
+        "endChar": 97
+      },
+      "revId": "4bc562cddb05b424eefb4d0584710d7b7da5d30b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "800eca12_a4a7017f",
+        "filename": "src/main/java/org/opencord/kafka/integrations/McastKafkaIntegration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2020-03-17T14:25:23Z",
+      "side": 1,
+      "message": "modifying to check vlan if it\u0027s value is VlanId.NONE, as this is being set in mcast app if VLAN is not enabled.",
+      "parentUuid": "7bf3c13b_29377132",
       "range": {
         "startLine": 102,
         "startChar": 60,
