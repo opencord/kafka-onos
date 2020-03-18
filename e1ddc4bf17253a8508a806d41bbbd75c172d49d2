@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8596722d_8f05d6f6",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000653
+      },
+      "writtenOn": "2020-03-18T12:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6149e60d_a1406500",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "e1ddc4bf17253a8508a806d41bbbd75c172d49d2",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4b1ccb5_0b6ed2e1",
         "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2020-03-18T12:36:54Z",
       "side": 1,
       "message": "why new line ?",
+      "revId": "e1ddc4bf17253a8508a806d41bbbd75c172d49d2",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5452d1db_ec456090",
+        "filename": "src/main/java/org/opencord/kafka/integrations/IgmpKafkaIntegration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000653
+      },
+      "writtenOn": "2020-03-18T12:53:36Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "b4b1ccb5_0b6ed2e1",
       "revId": "e1ddc4bf17253a8508a806d41bbbd75c172d49d2",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
