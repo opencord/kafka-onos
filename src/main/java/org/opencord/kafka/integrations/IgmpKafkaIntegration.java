@@ -75,6 +75,33 @@ public class IgmpKafkaIntegration extends AbstractKafkaIntegration {
     private static final String IGMP_MSG_RECEIVED = "igmpMsgReceived";
     private static final String INVALID_IGMP_MSG_RECEIVED = "invalidIgmpMsgReceived";
 
+    private static final String UNKNOWN_IGMP_TYPE_PACKETS_RX_COUNTER =
+       "unknownIgmpTypePacketsRxCounter";
+    private static final String REPORTS_RX_WITH_WRONG_MODE_COUNTER =
+       "reportsRxWithWrongModeCounter";
+    private static final String FAIL_JOIN_REQ_INSUFF_PERMISSION_ACCESS_COUNTER =
+       "failJoinReqInsuffPermissionAccessCounter";
+    private static final String FAIL_JOIN_REQ_UNKNOWN_MULTICAST_IP_COUNTER =
+       "failJoinReqUnknownMulticastIpCounter";
+    private static final String UNCONFIGURED_GROUP_COUNTER =
+       "unconfiguredGroupCounter";
+    private static final String VALID_IGMP_PACKET_COUNTER =
+       "validIgmpPacketCounter";
+    private static final String IGMP_CHANNEL_JOIN_COUNTER =
+       "igmpChannelJoinCounter";
+    private static final String CURRENT_GRP_NUM_COUNTER =
+       "currentGrpNumCounter";
+    private static final String IGMP_VALID_CHECKSUM_COUNTER =
+       "igmpValidChecksumCounter";
+    private static final String INVALID_IGMP_LENGTH =
+       "invalidIgmpLength";
+    private static final String IGMP_GENERAL_MEMBERSHIP_QUERY =
+       "igmpGeneralMembershipQuery";
+    private static final String IGMP_GRP_SPECIFIC_MEMBERSHIP_QUERY =
+       "igmpGrpSpecificMembershipQuery";
+    private static final String IGMP_GRP_AND_SRC_SPECIFIC_MEMBERSHIP_QUERY =
+       "igmpGrpAndSrcSpecificMembershipQuery";
+
     protected void bindIgmpStatService(IgmpStatisticsService incomingService) {
         bindAndAddListener(incomingService, igmpStatServiceRef, igmpStatisticsEventListener);
     }
@@ -116,6 +143,22 @@ public class IgmpKafkaIntegration extends AbstractKafkaIntegration {
         igmpStatEvent.put(TOTAL_MSG_RECEIVED, event.subject().getTotalMsgReceived());
         igmpStatEvent.put(IGMP_MSG_RECEIVED, event.subject().getIgmpMsgReceived());
         igmpStatEvent.put(INVALID_IGMP_MSG_RECEIVED, event.subject().getInvalidIgmpMsgReceived());
+        igmpStatEvent.put(UNKNOWN_IGMP_TYPE_PACKETS_RX_COUNTER, event.subject().getUnknownIgmpTypePacketsRxCounter());
+        igmpStatEvent.put(REPORTS_RX_WITH_WRONG_MODE_COUNTER, event.subject().getReportsRxWithWrongModeCounter());
+        igmpStatEvent.put(FAIL_JOIN_REQ_INSUFF_PERMISSION_ACCESS_COUNTER,
+            event.subject().getFailJoinReqInsuffPermissionAccessCounter());
+        igmpStatEvent.put(FAIL_JOIN_REQ_UNKNOWN_MULTICAST_IP_COUNTER,
+            event.subject().getFailJoinReqUnknownMulticastIpCounter());
+        igmpStatEvent.put(UNCONFIGURED_GROUP_COUNTER, event.subject().getUnconfiguredGroupCounter());
+        igmpStatEvent.put(VALID_IGMP_PACKET_COUNTER, event.subject().getValidIgmpPacketCounter());
+        igmpStatEvent.put(IGMP_CHANNEL_JOIN_COUNTER, event.subject().getIgmpChannelJoinCounter());
+        igmpStatEvent.put(CURRENT_GRP_NUM_COUNTER, event.subject().getCurrentGrpNumCounter());
+        igmpStatEvent.put(IGMP_VALID_CHECKSUM_COUNTER, event.subject().getIgmpValidChecksumCounter());
+        igmpStatEvent.put(INVALID_IGMP_LENGTH, event.subject().getInvalidIgmpLength());
+        igmpStatEvent.put(IGMP_GENERAL_MEMBERSHIP_QUERY, event.subject().getIgmpGeneralMembershipQuery());
+        igmpStatEvent.put(IGMP_GRP_SPECIFIC_MEMBERSHIP_QUERY, event.subject().getIgmpGrpSpecificMembershipQuery());
+        igmpStatEvent.put(IGMP_GRP_AND_SRC_SPECIFIC_MEMBERSHIP_QUERY,
+            event.subject().getIgmpGrpAndSrcSpecificMembershipQuery());
         return igmpStatEvent;
     }
 
