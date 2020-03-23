@@ -1,0 +1,84 @@
+/*
+ * Copyright 2018-present Open Networking Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.opencord.kafka.integrations;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.opencord.igmpproxy.IgmpStatistics;
+import org.opencord.igmpproxy.IgmpStatisticsEvent;
+import org.opencord.igmpproxy.IgmpStatisticsEventListener;
+import org.opencord.igmpproxy.IgmpStatisticsService;
+import org.opencord.kafka.EventBusService;
+
+public class IgmpKafkaIntegrationTest {
+    private IgmpKafkaIntegration igmpKafkaIntegration;
+    private IgmpStatisticsEventListener igmpStatisticsEventListener;
+    private IgmpStatistics igmpStatistics = new IgmpStatistics();
+    private static final String IGMP_STATISTICS_TOPIC = "onos.igmp.stats.kpis";
+
+    @BeforeEach
+    void setup() {
+        igmpKafkaIntegration = new IgmpKafkaIntegration();
+        igmpKafkaIntegration.eventBusService = new MockEventBusService();
+        igmpKafkaIntegration.ignore = new MockIgmpStatisticsService();
+        igmpKafkaIntegration.bindIgmpStatService(igmpKafkaIntegration.ignore);
+        igmpKafkaIntegration.activate();
+    }
+
+    @AfterEach
+    void tearDown() {
+        igmpKafkaIntegration.unbindIgmpStatService(igmpKafkaIntegration.ignore);
+        igmpKafkaIntegration.deactivate();
+    }
+
+    @Test
+    void testIgmpStatisticsEvent() {
+        IgmpStatisticsEvent igmpStatsEvent = new IgmpStatisticsEvent(
+                IgmpStatisticsEvent.Type.STATS_UPDATE, igmpStatistics);
+        igmpStatisticsEventListener.event(igmpStatsEvent);
+        Assert.assertNotEquals(MockEventBusService.igmpstats, 0);
+    }
+
+    private static class MockEventBusService implements EventBusService {
+        static int igmpstats = 0;
+
+        @Override
+        public void send(String topic, JsonNode data) {
+            if (topic.equals(IGMP_STATISTICS_TOPIC)) {
+                igmpstats++;
+            }
+        }
+    }
+
+    private class MockIgmpStatisticsService implements IgmpStatisticsService {
+        @Override
+        public IgmpStatistics getIgmpStats() {
+            return igmpStatistics;
+        }
+
+        @Override
+        public void addListener(IgmpStatisticsEventListener listener) {
+            igmpStatisticsEventListener = listener;
+        }
+
+        @Override
+        public void removeListener(IgmpStatisticsEventListener listener) {
+        }
+    }
+}
