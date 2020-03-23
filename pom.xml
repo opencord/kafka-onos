@@ -42,8 +42,6 @@
         <dhcpl2relay.api.version>2.0.1</dhcpl2relay.api.version>
         <bng.api.version>1.0.0</bng.api.version>
         <sadis.api.version>5.0.0</sadis.api.version>
-        <igmp.version>2.0.0-SNAPSHOT</igmp.version>
-        <mcast.version>2.0.0-SNAPSHOT</mcast.version>
     </properties>
 
     <dependencies>
@@ -89,13 +87,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.opencord</groupId>
-            <artifactId>mcast</artifactId>
-            <version>${mcast.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <scope>provided</scope>
@@ -113,11 +104,39 @@
             <artifactId>sadis-api</artifactId>
             <version>${sadis.api.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.opencord</groupId>
-            <artifactId>onos-app-igmpproxy</artifactId>
-            <version>${igmp.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onlab-junit</artifactId>
+            <version>${onos.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onos-api</artifactId>
+            <version>${onos.version}</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -127,6 +146,10 @@
             <plugin>
                 <groupId>org.onosproject</groupId>
                 <artifactId>onos-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
