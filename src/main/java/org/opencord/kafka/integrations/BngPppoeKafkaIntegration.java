@@ -50,7 +50,7 @@ public class BngPppoeKafkaIntegration extends AbstractKafkaIntegration {
     protected volatile PppoeBngControlHandler ignore;
     private final AtomicReference<PppoeBngControlHandler> pppoeBngControlRef = new AtomicReference<>();
 
-    private static final String TOPIC_PPPOE = "bng.pppoe";
+    protected static final String TOPIC_PPPOE = "bng.pppoe";
     private static final String TIMESTAMP = "timestamp";
     private static final String EVENT_TYPE = "eventType";
     private static final String OLT_DEVICE_ID = "deviceId";

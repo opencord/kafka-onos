@@ -55,7 +55,7 @@ public class McastKafkaIntegration extends AbstractKafkaIntegration {
     private final CordMcastStatisticsEventListener cordMcastStatisticsEventListener =
             new InternalCorcMcastStatisticsListener();
 
-    private static final String MCAST_OPERATIONAL_STATUS_TOPIC = "mcastOperationalStatus.events";
+    protected static final String MCAST_OPERATIONAL_STATUS_TOPIC = "mcastOperationalStatus.events";
 
     //cord mcast stats event params
     private static final String TIMESTAMP = "timestamp";

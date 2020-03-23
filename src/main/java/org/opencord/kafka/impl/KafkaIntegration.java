@@ -59,7 +59,7 @@ public class KafkaIntegration implements EventBusService {
     private static final Class<KafkaConfig>
             KAFKA_CONFIG_CLASS = KafkaConfig.class;
 
-    private static final String APP_NAME = "org.opencord.kafka";
+    protected static final String APP_NAME = "org.opencord.kafka";
     private ApplicationId appId;
 
     @Reference(cardinality = ReferenceCardinality.MANDATORY)

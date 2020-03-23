@@ -58,7 +58,7 @@ public class IgmpKafkaIntegration extends AbstractKafkaIntegration {
             new InternalIgmpStatisticsListener();
 
     //TOPIC
-    private static final String IGMP_STATISTICS_TOPIC = "onos.igmp.stats.kpis";
+    protected static final String IGMP_STATISTICS_TOPIC = "onos.igmp.stats.kpis";
 
     // IGMP stats event params
     private static final String IGMP_JOIN_REQ = "igmpJoinReq";

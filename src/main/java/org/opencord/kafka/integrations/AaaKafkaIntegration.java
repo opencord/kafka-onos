@@ -94,9 +94,9 @@ public class AaaKafkaIntegration extends AbstractKafkaIntegration {
             new InternalAaaMachineStatisticsListener();
 
     // topics
-    private static final String TOPIC = "authentication.events";
-    private static final String AUTHENTICATION_STATISTICS_TOPIC = "onos.aaa.stats.kpis";
-    private static final String RADIUS_OPERATION_STATUS_TOPIC = "radiusOperationalStatus.events";
+    protected static final String TOPIC = "authentication.events";
+    protected static final String AUTHENTICATION_STATISTICS_TOPIC = "onos.aaa.stats.kpis";
+    protected static final String RADIUS_OPERATION_STATUS_TOPIC = "radiusOperationalStatus.events";
     // auth event params
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";

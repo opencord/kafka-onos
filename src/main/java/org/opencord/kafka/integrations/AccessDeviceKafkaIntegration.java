@@ -22,8 +22,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.onosproject.net.AnnotationKeys;
 import org.onosproject.net.Device;
 import org.onosproject.net.DeviceId;
-import org.onosproject.net.device.DeviceService;
 import org.onosproject.net.Port;
+import org.onosproject.net.device.DeviceService;
 import org.opencord.kafka.EventBusService;
 import org.opencord.olt.AccessDeviceEvent;
 import org.opencord.olt.AccessDeviceListener;
@@ -63,7 +63,7 @@ public class AccessDeviceKafkaIntegration extends AbstractKafkaIntegration {
 
     private final AccessDeviceListener listener = new InternalAccessDeviceListener();
 
-    private static final String TOPIC = "onu.events";
+    protected static final String TOPIC = "onu.events";
 
     // event fields
     private static final String STATUS = "status";

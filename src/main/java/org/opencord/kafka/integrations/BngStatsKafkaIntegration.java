@@ -56,7 +56,7 @@ public class BngStatsKafkaIntegration extends AbstractKafkaIntegration {
     protected volatile BngStatsService ignore;
     private final AtomicReference<BngStatsService> bngStatsServiceRef = new AtomicReference<>();
 
-    private static final String TOPIC_STATS = "bng.stats";
+    protected static final String TOPIC_STATS = "bng.stats";
     private static final String SUBSCRIBER_S_TAG = "sTag";
     private static final String SUBSCRIBER_C_TAG = "cTag";
 
