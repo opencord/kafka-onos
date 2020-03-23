@@ -54,10 +54,10 @@ public class DeviceKafkaIntegration {
     @Reference(cardinality = ReferenceCardinality.MANDATORY)
     protected DeviceService deviceService;
 
-    private final DeviceListener listener = new InternalDeviceListener();
+    protected final DeviceListener listener = new InternalDeviceListener();
 
-    private static final String TOPIC = "onos.kpis";
-    private static final String PORT_EVENT_TOPIC = "onos.events.port";
+    protected static final String TOPIC = "onos.kpis";
+    protected static final String PORT_EVENT_TOPIC = "onos.events.port";
 
     // event fields
     private static final String TIMESTAMP = "timestamp";

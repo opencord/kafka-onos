@@ -62,8 +62,8 @@ public class DhcpL2RelayKafkaIntegration extends AbstractKafkaIntegration {
     private final DhcpL2RelayListener listener = new InternalDhcpL2RelayListener();
 
     // topics
-    private static final String TOPIC = "dhcp.events";
-    private static final String DHCP_STATS_TOPIC = "onos.dhcp.stats.kpis";
+    protected static final String TOPIC = "dhcp.events";
+    protected static final String DHCP_STATS_TOPIC = "onos.dhcp.stats.kpis";
 
     private static final String TIMESTAMP = "timestamp";
     private static final String DEVICE_ID = "deviceId";
