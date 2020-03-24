@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8eb1817_63758590",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000461
+      },
+      "writtenOn": "2020-03-24T20:38:07Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "4d2515d48361dbded7a3d5773fa520981dad9408",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
