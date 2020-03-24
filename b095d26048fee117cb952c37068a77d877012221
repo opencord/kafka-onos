@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66a3bee8_02136d9a",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-24T20:10:51Z",
+      "side": 1,
+      "message": "is the artifact id correct ?",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 42
+      },
+      "revId": "b095d26048fee117cb952c37068a77d877012221",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
