@@ -25,5 +25,7 @@
     <artifact>mvn:${project.groupId}/olt-api/${olt.api.version}</artifact>
     <artifact>mvn:${project.groupId}/sadis-api/${sadis.api.version}</artifact>
     <artifact>mvn:${project.groupId}/bng-api/${bng.api.version}</artifact>
+    <artifact>mvn:${project.groupId}/onos-app-igmpproxy-api/${igmp.api.version}</artifact>
+    <artifact>mvn:${project.groupId}/mcast-api/${mcast.api.version}</artifact>
     <artifact>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/1.1.1_1</artifact>
 </app>
