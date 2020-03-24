@@ -46,6 +46,30 @@
       "revId": "b095d26048fee117cb952c37068a77d877012221",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c77129b_1938e78d",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-24T20:29:47Z",
+      "side": 1,
+      "message": "I have to update now because I have changed the bundles name for consistency",
+      "parentUuid": "710a3c31_9ef3a9cf",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 42
+      },
+      "revId": "b095d26048fee117cb952c37068a77d877012221",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
