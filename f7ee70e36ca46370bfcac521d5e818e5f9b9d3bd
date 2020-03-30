@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9888cfa7_ee81b8a1",
+        "filename": "pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "you could probably add \u003cscope\u003etest\u003c/scope\u003e to the ones that are missing it",
+      "range": {
+        "startLine": 123,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 21
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d07ec3e7_b4d37060",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "missing javadoc, valid for all classes and methods.",
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "605ff443_dd4b6615",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "might want to put the device listener to null, valid for all other remove listeners too",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d12b7317_3c28e075",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "probably worth extracting in separate class/classes and reuse when possibile in the other tests",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 5
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b3a4e5f_7d161968",
+        "filename": "src/test/java/org/opencord/kafka/integrations/BngPppoeKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "use constant TOPIC_PPPOE in the Integration class",
+      "range": {
+        "startLine": 77,
+        "startChar": 29,
+        "endLine": 77,
+        "endChar": 40
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcc3fe16_da4a5b07",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DeviceKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "use existing constants",
+      "range": {
+        "startLine": 151,
+        "startChar": 29,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54f1c4f4_ac924077",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DeviceKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 154,
+        "startChar": 29,
+        "endLine": 154,
+        "endChar": 47
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b29fc3c0_30e9e008",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DhcpL2RelayKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "reuse existing constants",
+      "range": {
+        "startLine": 194,
+        "startChar": 21,
+        "endLine": 194,
+        "endChar": 43
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "856541e5_00485825",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DhcpL2RelayKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 197,
+        "startChar": 21,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b9abfd7_7ef36c1a",
+        "filename": "src/test/java/org/opencord/kafka/integrations/IgmpKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 51
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbf4cdc_868b675d",
+        "filename": "src/test/java/org/opencord/kafka/integrations/McastKafkaIntegrationTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-30T09:11:42Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 60
+      },
+      "revId": "f7ee70e36ca46370bfcac521d5e818e5f9b9d3bd",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
