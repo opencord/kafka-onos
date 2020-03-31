@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6949bdd1_bf8fad07",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-03-31T08:37:06Z",
+      "side": 1,
+      "message": "Hi Andrea,\n\nThe Constants are defined as private and not accessible in Test class.",
+      "parentUuid": "25b727a5_8f545e6d",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 97
+      },
+      "revId": "5a9a8d9b57652df1f51737aa6786ee7d1008f54b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc06eb72_a049dd3a",
         "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
         "patchSetId": 7
