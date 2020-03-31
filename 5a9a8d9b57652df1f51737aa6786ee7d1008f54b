@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "496232e8_4d99db37",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-03-31T08:38:29Z",
+      "side": 1,
+      "message": "Please change them to protected and reuse them",
+      "parentUuid": "6949bdd1_bf8fad07",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 97
+      },
+      "revId": "5a9a8d9b57652df1f51737aa6786ee7d1008f54b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc06eb72_a049dd3a",
         "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
         "patchSetId": 7
