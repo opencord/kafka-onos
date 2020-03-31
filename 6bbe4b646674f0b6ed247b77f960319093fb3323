@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "960e217f_ac464678",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "You can make a static import.",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd0d6aef_7c888d7c",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "why are you not checking equals 1 ?",
+      "range": {
+        "startLine": 96,
+        "startChar": 15,
+        "endLine": 96,
+        "endChar": 30
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d347b07a_b2155100",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "fix here similar thing and in other places",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 72
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f24eafdf_e3abfa54",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "I think we can add an \"otherCounter\" that is updated by default clause. We can check then that is always 0 in each test. Do the same also in the other tests",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 39
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fea8e101_f28c9811",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AccessDeviceKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "constant",
+      "range": {
+        "startLine": 76,
+        "startChar": 60,
+        "endLine": 76,
+        "endChar": 61
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94bc0c69_49804eb4",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AccessDeviceKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "constant. Please check also in other tests.",
+      "range": {
+        "startLine": 76,
+        "startChar": 29,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d61186e_5a8d8008",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DeviceKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "Why there is this guy also here ? Cant we have just one ?",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 66
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6531b6c_091de61f",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DhcpL2RelayKafkaIntegrationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-03-31T12:50:55Z",
+      "side": 1,
+      "message": "it seems here you can reuse and simplify the definitions. Also I believe the counters are only needed for the stats event",
+      "range": {
+        "startLine": 45,
+        "startChar": 6,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "6bbe4b646674f0b6ed247b77f960319093fb3323",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
