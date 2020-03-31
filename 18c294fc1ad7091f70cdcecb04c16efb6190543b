@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f9900970_401b568c",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DeviceKafkaIntegrationTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-03-31T10:02:09Z",
+      "side": 1,
+      "message": "This mock is specific to DeviceKafkaIntegration. But still using the MockPort object which is part of common MockDevice Service. Hence using long import with package name.\n\nTo avoid that changed the name of the class to TestDeviceServie.",
+      "parentUuid": "0b5b6e8f_b598cfc1",
+      "range": {
+        "startLine": 124,
+        "startChar": 18,
+        "endLine": 124,
+        "endChar": 37
+      },
+      "revId": "18c294fc1ad7091f70cdcecb04c16efb6190543b",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c328c6a_d335a504",
         "filename": "src/test/java/org/opencord/kafka/integrations/DhcpL2RelayKafkaIntegrationTest.java",
         "patchSetId": 9
