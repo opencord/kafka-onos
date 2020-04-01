@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df7384a6_8023a364",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-04-01T14:30:01Z",
+      "side": 1,
+      "message": "please provide failure message",
+      "revId": "6e762b54bba5fa30ab27b553b564568e041385fe",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b713cdfc_f2cc0ed5",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-04-01T14:30:01Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 11
+      },
+      "revId": "6e762b54bba5fa30ab27b553b564568e041385fe",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02f0ff51_35a0fc5e",
+        "filename": "src/test/java/org/opencord/kafka/integrations/BngPppoeKafkaIntegrationTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-04-01T14:30:01Z",
+      "side": 1,
+      "message": "these values are replicated across many files, please extract in a new class KafkaIntegrationTestBase.java",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 46
+      },
+      "revId": "6e762b54bba5fa30ab27b553b564568e041385fe",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2277482_4ec26a5a",
+        "filename": "src/test/java/org/opencord/kafka/integrations/BngStatsKafkaIntegrationTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-04-01T14:30:01Z",
+      "side": 1,
+      "message": "reuse existing constants",
+      "range": {
+        "startLine": 103,
+        "startChar": 29,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "6e762b54bba5fa30ab27b553b564568e041385fe",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b93921c_e2c533d7",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DeviceKafkaIntegrationTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-04-01T14:30:01Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 46
+      },
+      "revId": "6e762b54bba5fa30ab27b553b564568e041385fe",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
