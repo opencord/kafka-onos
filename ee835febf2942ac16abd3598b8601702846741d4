@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73d6420a_3b109c95",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-04-01T18:55:29Z",
+      "side": 1,
+      "message": "It is not clear to me. What are you doing in this test ?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 36
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77946a97_555a94a5",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-04-01T18:55:29Z",
+      "side": 1,
+      "message": "Is there any dependency in the order of execution of the tests ? This does not look safe",
+      "range": {
+        "startLine": 99,
+        "startChar": 59,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31bf9cd7_ca2c7e69",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AccessDeviceKafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-04-01T18:55:29Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 80,
+        "startChar": 54,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b65159d_c518b513",
+        "filename": "src/test/java/org/opencord/kafka/integrations/DhcpL2RelayKafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-04-01T18:55:29Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 75,
+        "startChar": 52,
+        "endLine": 75,
+        "endChar": 53
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
