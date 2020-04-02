@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e65423a_43342536",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2020-04-02T07:59:21Z",
+      "side": 1,
+      "message": "honestly I am not fully convinced by the utility of this test (above all if our expectation is to test the KafkaIntegration class).",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 61
+      },
+      "revId": "bcb17a07186d7c5fbbc168c0f4d313e5bb4ad33c",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    }
+  ]
+}
