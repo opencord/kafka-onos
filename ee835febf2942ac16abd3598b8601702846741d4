@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0fa8fa7_8981a29a",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-04-02T05:48:55Z",
+      "side": 1,
+      "message": "This test is to verify the Kafka configuration (on added or updated)",
+      "parentUuid": "73d6420a_3b109c95",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 36
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77946a97_555a94a5",
         "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "95288e41_6d02d127",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AaaKafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-04-02T05:48:55Z",
+      "side": 1,
+      "message": "I\u0027m using in the static variable, hence in a sequence, the counter is increased. reinitialize variable on object creation and corrected in the latest patch.",
+      "parentUuid": "77946a97_555a94a5",
+      "range": {
+        "startLine": 99,
+        "startChar": 59,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31bf9cd7_ca2c7e69",
         "filename": "src/test/java/org/opencord/kafka/integrations/AccessDeviceKafkaIntegrationTest.java",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2020-04-01T18:55:29Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 80,
+        "startChar": 54,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "ee835febf2942ac16abd3598b8601702846741d4",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34a2b12e_b101aa6b",
+        "filename": "src/test/java/org/opencord/kafka/integrations/AccessDeviceKafkaIntegrationTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-04-02T05:48:55Z",
+      "side": 1,
+      "message": "updated in the latest patch.",
+      "parentUuid": "31bf9cd7_ca2c7e69",
       "range": {
         "startLine": 80,
         "startChar": 54,
