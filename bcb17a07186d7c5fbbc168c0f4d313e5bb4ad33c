@@ -22,6 +22,30 @@
       "revId": "bcb17a07186d7c5fbbc168c0f4d313e5bb4ad33c",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbce0547_dbcfbbb1",
+        "filename": "src/test/java/org/opencord/kafka/impl/KafkaIntegrationTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000529
+      },
+      "writtenOn": "2020-04-02T11:49:50Z",
+      "side": 1,
+      "message": "Hi Pier Luigi,\n\nIn the KafkaIntegration class, apart from the NetworkConfigListener, we have only one public method(send()method). We have mocked the NetworkconfigListener which covers most of the code in the KafkaIntegration class. for the send() method, we need the Kafka process to be running. Hence Tests are not implemented.\n\nPlease share your opinions and suggestions on the KakfaIntegrationTest class.",
+      "parentUuid": "3e65423a_43342536",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 61
+      },
+      "revId": "bcb17a07186d7c5fbbc168c0f4d313e5bb4ad33c",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
