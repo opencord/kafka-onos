@@ -85,7 +85,7 @@ public class McastKafkaIntegration extends AbstractKafkaIntegration {
 
     private void handleMcastStat(CordMcastStatisticsEvent mcastStatEvent) {
         eventBusService.send(MCAST_OPERATIONAL_STATUS_TOPIC, serializeMcastStat(mcastStatEvent));
-        log.info("CordMcastStatisticsEvent sent successfully");
+        log.debug("CordMcastStatisticsEvent {} sent successfully", mcastStatEvent);
     }
 
     private JsonNode serializeMcastStat(CordMcastStatisticsEvent mcastStatEvent) {
