@@ -42,7 +42,7 @@
         <dhcpl2relay.api.version>2.0.2</dhcpl2relay.api.version>
         <bng.api.version>1.0.0</bng.api.version>
         <sadis.api.version>5.0.1</sadis.api.version>
-        <igmp.api.version>2.0.0</igmp.api.version>
+        <igmp.api.version>2.1.0-SNAPSHOT</igmp.api.version>
         <mcast.api.version>2.0.0</mcast.api.version>
     </properties>
 

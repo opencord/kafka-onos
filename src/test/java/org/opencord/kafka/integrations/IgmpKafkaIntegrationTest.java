@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.opencord.igmpproxy.IgmpStatistics;
+import org.opencord.igmpproxy.IgmpStatisticType;
 import org.opencord.igmpproxy.IgmpStatisticsEventListener;
 import org.opencord.igmpproxy.IgmpStatisticsService;
 import org.opencord.kafka.EventBusService;
@@ -78,10 +78,6 @@ public class IgmpKafkaIntegrationTest extends KafkaIntegrationTestBase {
     }
 
     private class MockIgmpStatisticsService implements IgmpStatisticsService {
-        @Override
-        public IgmpStatistics getIgmpStats() {
-            return new IgmpStatistics();
-        }
 
         @Override
         public void addListener(IgmpStatisticsEventListener listener) {
@@ -91,6 +87,21 @@ public class IgmpKafkaIntegrationTest extends KafkaIntegrationTestBase {
         @Override
         public void removeListener(IgmpStatisticsEventListener listener) {
             igmpStatisticsEventListener = null;
+        }
+
+        @Override
+        public void increaseStat(IgmpStatisticType igmpStatisticType) {
+
+        }
+
+        @Override
+        public void resetAllStats() {
+
+        }
+
+        @Override
+        public Long getStat(IgmpStatisticType igmpStatisticType) {
+            return 0L;
         }
     }
 }
