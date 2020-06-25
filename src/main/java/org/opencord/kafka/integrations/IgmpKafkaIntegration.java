@@ -123,7 +123,9 @@ public class IgmpKafkaIntegration extends AbstractKafkaIntegration {
 
     private void handleStat(IgmpStatisticsEvent event) {
         eventBusService.send(IGMP_STATISTICS_TOPIC, serializeStat(event));
-        log.info("IGMPStatisticsEvent sent successfully");
+        if (log.isTraceEnabled()) {
+            log.trace("IGMPStatisticsEvent sent successfully");
+        }
     }
 
     private JsonNode serializeStat(IgmpStatisticsEvent event) {
