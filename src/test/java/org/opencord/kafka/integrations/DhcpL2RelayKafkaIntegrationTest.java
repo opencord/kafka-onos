@@ -70,7 +70,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
                 LOCAL_IP);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.STATS_UPDATE,
-                allocationInfo, OLT_CONNECT_POINT, entryCounter, DHCP_COUNTER_TOPIC, null);
+                allocationInfo, OLT_CONNECT_POINT, entryCounter, null);
         dhcpL2RelayListener.event(event);
         assertEquals(MockEventBusService.dhcpStats, 1);
         assertEquals(MockEventBusService.otherCounter, 0);
@@ -88,7 +88,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
                 LOCAL_IP);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.STATS_UPDATE,
-                allocationInfo, OLT_CONNECT_POINT, entryCounter, DHCP_COUNTER_TOPIC, ONU_SERIAL);
+                allocationInfo, OLT_CONNECT_POINT, entryCounter, ONU_SERIAL);
         dhcpL2RelayListener.event(event);
         assertEquals(MockEventBusService.dhcpStats, 1);
         assertEquals(MockEventBusService.otherCounter, 0);
@@ -106,7 +106,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
                 LOCAL_IP);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.UPDATED,
-                allocationInfo, cp, entryCounter, DHCP_COUNTER_TOPIC, null);
+                allocationInfo, cp, entryCounter, null);
         dhcpL2RelayListener.event(event);
         assertEquals(MockEventBusService.dhcpEvents, 1);
         assertEquals(MockEventBusService.otherCounter, 0);
@@ -148,6 +148,21 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
         @Override
         public void removeListener(DhcpL2RelayListener listener) {
             dhcpL2RelayListener = null;
+        }
+
+        @Override
+        public Map<String, DhcpAllocationInfo> getAllocationInfo() {
+            return null;
+        }
+
+        @Override
+        public void clearAllocations() {
+
+        }
+
+        @Override
+        public boolean removeAllocationByConnectPoint(ConnectPoint connectPoint) {
+            return false;
         }
     }
 }

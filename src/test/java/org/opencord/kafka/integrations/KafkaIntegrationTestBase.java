@@ -131,9 +131,9 @@ public class KafkaIntegrationTestBase {
     protected CordMcastStatisticsEvent getCordMcastStatisticsEvent() {
         List<CordMcastStatistics> statsList = Lists.newArrayList(
                 new CordMcastStatistics(IpAddress.valueOf("172.16.34.34"),
-                        "192.168.0.21", VlanId.vlanId("100")),
+                        "192.168.0.21", VlanId.vlanId("100"), VlanId.vlanId("200")),
                 new CordMcastStatistics(IpAddress.valueOf("172.16.35.35"),
-                        "192.168.0.22", VlanId.vlanId("101"))
+                        "192.168.0.22", VlanId.vlanId("101"), VlanId.vlanId("201"))
         );
         return new CordMcastStatisticsEvent(
                 CordMcastStatisticsEvent.Type.STATUS_UPDATE, statsList);

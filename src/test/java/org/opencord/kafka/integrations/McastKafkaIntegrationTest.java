@@ -84,6 +84,11 @@ public class McastKafkaIntegrationTest extends KafkaIntegrationTestBase {
         }
 
         @Override
+        public void setInnerVlanValue(VlanId vlanId) {
+
+        }
+
+        @Override
         public void addListener(CordMcastStatisticsEventListener listener) {
             mcastStatsListerner = listener;
         }
