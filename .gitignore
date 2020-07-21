@@ -7,3 +7,5 @@
 target
 *.iml
 .idea
+mvn_settings.xml
+dependencies.xml
