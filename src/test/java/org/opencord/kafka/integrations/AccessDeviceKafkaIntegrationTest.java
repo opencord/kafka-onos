@@ -136,6 +136,11 @@ class AccessDeviceKafkaIntegrationTest extends KafkaIntegrationTestBase {
         }
 
         @Override
+        public ImmutableMap<ConnectPoint, Set<UniTagInformation>> getFailedSubs() {
+            return null;
+        }
+
+        @Override
         public void addListener(AccessDeviceListener listener) {
             accessDeviceListener = listener;
         }
