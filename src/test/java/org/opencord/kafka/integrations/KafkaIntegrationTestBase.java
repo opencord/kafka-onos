@@ -64,6 +64,7 @@ public class KafkaIntegrationTestBase {
     protected static final Short SESSION_ID = 2;
     protected static final ConnectPoint OLT_CONNECT_POINT = new ConnectPoint(MockDeviceService.DEVICE_ID_1,
             PORT_NUMBER);
+    protected static final String SUBSCRIBER_ID = ONU_SERIAL + "-1";
 
     protected AuthenticationEvent getAuthenticationEvent() {
         return new AuthenticationEvent(AuthenticationEvent.Type.APPROVED,
