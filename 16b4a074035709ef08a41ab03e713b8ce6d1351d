@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c32bbc74_1fab2774",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2020-08-25T11:13:55Z",
+      "side": 1,
+      "message": "false",
+      "revId": "16b4a074035709ef08a41ab03e713b8ce6d1351d",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": true
+    }
+  ]
+}
