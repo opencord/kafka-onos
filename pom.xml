@@ -151,6 +151,7 @@
                 <artifactId>onos-maven-plugin</artifactId>
             </plugin>
             <!-- SpotBugs Static Analysis -->
+
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
