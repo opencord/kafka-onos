@@ -68,7 +68,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
         DhcpAllocationInfo allocationInfo = new DhcpAllocationInfo(
                 OLT_CONNECT_POINT,
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
-                LOCAL_IP, SUBSCRIBER_ID);
+                LOCAL_IP, C_TAG, SUBSCRIBER_ID);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.STATS_UPDATE,
                 allocationInfo, OLT_CONNECT_POINT, entryCounter, null);
         dhcpL2RelayListener.event(event);
@@ -86,7 +86,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
         DhcpAllocationInfo allocationInfo = new DhcpAllocationInfo(
                 OLT_CONNECT_POINT,
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
-                LOCAL_IP, SUBSCRIBER_ID);
+                LOCAL_IP, C_TAG, SUBSCRIBER_ID);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.STATS_UPDATE,
                 allocationInfo, OLT_CONNECT_POINT, entryCounter, ONU_SERIAL);
         dhcpL2RelayListener.event(event);
@@ -104,7 +104,7 @@ class DhcpL2RelayKafkaIntegrationTest extends KafkaIntegrationTestBase {
         DhcpAllocationInfo allocationInfo = new DhcpAllocationInfo(
                 new ConnectPoint(DEVICE_ID_1, PORT.number()),
                 DHCP.MsgType.DHCPREQUEST, ONU_SERIAL, OLT_MAC,
-                LOCAL_IP, SUBSCRIBER_ID);
+                LOCAL_IP, C_TAG, SUBSCRIBER_ID);
         DhcpL2RelayEvent event = new DhcpL2RelayEvent(DhcpL2RelayEvent.Type.UPDATED,
                 allocationInfo, cp, entryCounter, null);
         dhcpL2RelayListener.event(event);
