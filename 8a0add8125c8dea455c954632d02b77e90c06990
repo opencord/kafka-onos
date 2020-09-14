@@ -1,0 +1,8 @@
+Code-Review+1: Girish Gowdra <girish@opennetworking.org>
+Code-Review+2: Matteo Scandolo <teo@opennetworking.org>
+Verified+1: Jenkins Technical User <do-not-reply@opennetworking.org>
+Submitted-by: Matteo Scandolo <teo@opennetworking.org>
+Submitted-at: Mon, 14 Sep 2020 17:16:47 +0000
+Reviewed-on: https://gerrit.opencord.org/c/kafka-onos/+/20474
+Project: kafka-onos
+Branch: refs/heads/master
