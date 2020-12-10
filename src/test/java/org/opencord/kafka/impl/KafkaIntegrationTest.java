@@ -100,7 +100,7 @@ class KafkaIntegrationTest {
      */
     private static final class MockConfigDelegate implements ConfigApplyDelegate {
         @Override
-        public void onApply(@SuppressWarnings("rawtypes") Config config) {
+        public void onApply(@SuppressWarnings({"rawtypes", "TypeParameterUnusedInFormals"}) Config config) {
             config.apply();
         }
     }
@@ -193,7 +193,7 @@ class KafkaIntegrationTest {
             this.config = config;
         }
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({"unchecked", "TypeParameterUnusedInFormals"})
         @Override
         public <S, C extends Config<S>> C getConfig(final S subject, final Class<C> configClass) {
             return (C) config;

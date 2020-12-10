@@ -170,6 +170,7 @@ public class MockDeviceService extends DeviceServiceAdapter {
                 }
 
                 @Override
+                @SuppressWarnings({"TypeParameterUnusedInFormals"})
                 public <B extends Behaviour> B as(Class<B> projectionClass) {
                     return null;
                 }
