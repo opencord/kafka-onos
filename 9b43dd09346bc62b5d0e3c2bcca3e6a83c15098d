@@ -52,6 +52,24 @@
       "revId": "9b43dd09346bc62b5d0e3c2bcca3e6a83c15098d",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c75afdd_2b8b4d05",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000682
+      },
+      "writtenOn": "2021-03-04T16:22:54Z",
+      "side": 1,
+      "message": "You are right , maybe api versions should be created first and apps just depend on these.\nlike aaa-api-version is 2.3.0 , aaa-app-version is 2.3.0-SNAPSHOT.",
+      "parentUuid": "c58a7662_4f0e5727",
+      "revId": "9b43dd09346bc62b5d0e3c2bcca3e6a83c15098d",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
