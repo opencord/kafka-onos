@@ -70,6 +70,24 @@
       "revId": "9b43dd09346bc62b5d0e3c2bcca3e6a83c15098d",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68ee8a61_915304ec",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2021-03-04T16:56:17Z",
+      "side": 1,
+      "message": "My idea is that given that we are making the distinction now we will for now have snapshots, then when doing the release of these apps we will depend on API (non snapshot) and thus allow for the update.",
+      "parentUuid": "4c75afdd_2b8b4d05",
+      "revId": "9b43dd09346bc62b5d0e3c2bcca3e6a83c15098d",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": false
     }
   ]
 }
