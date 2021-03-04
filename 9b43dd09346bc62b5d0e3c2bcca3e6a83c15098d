@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "874d809c_5736dbbf",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000042
+      },
+      "writtenOn": "2021-03-04T13:25:41Z",
+      "side": 1,
+      "message": "I believe that it is better to depend on the latest release unless there are changes in the SNAPSHOT that are needed.",
+      "revId": "9b43dd09346bc62b5d0e3c2bcca3e6a83c15098d",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": true
+    }
+  ]
+}
