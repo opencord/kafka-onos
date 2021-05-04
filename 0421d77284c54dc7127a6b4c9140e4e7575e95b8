@@ -22,6 +22,30 @@
       "revId": "0421d77284c54dc7127a6b4c9140e4e7575e95b8",
       "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "500be111_3a3e8820",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000116
+      },
+      "writtenOn": "2021-05-04T14:52:07Z",
+      "side": 1,
+      "message": "good catch, will wait for push of the other artefacts to sonatype and push new patch for this.",
+      "parentUuid": "9ff6d76d_3391704c",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "0421d77284c54dc7127a6b4c9140e4e7575e95b8",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": true
     }
   ]
 }
