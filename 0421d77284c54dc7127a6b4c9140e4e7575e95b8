@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ff6d76d_3391704c",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000741
+      },
+      "writtenOn": "2021-05-04T14:50:54Z",
+      "side": 1,
+      "message": "In voltha-2.7 we were using mcast 2.3.2 and so next available is 2.4.0-SNAPSHOT. Should it be the same here?",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "0421d77284c54dc7127a6b4c9140e4e7575e95b8",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388",
+      "unresolved": true
+    }
+  ]
+}
