@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.onosproject</groupId>
         <artifactId>onos-dependencies</artifactId>
-        <version>2.5.2-SNAPSHOT</version>
+        <version>2.5.2</version>
     </parent>
 
     <groupId>org.opencord</groupId>
@@ -37,13 +37,13 @@
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
-        <aaa.api.version>2.4.0-SNAPSHOT</aaa.api.version>
-        <olt.api.version>4.5.0-SNAPSHOT</olt.api.version>
-        <dhcpl2relay.api.version>2.5.0-SNAPSHOT</dhcpl2relay.api.version>
-        <bng.api.version>2.0.0</bng.api.version>
-        <sadis.api.version>5.4.0-SNAPSHOT</sadis.api.version>
-        <igmp.api.version>2.3.0-SNAPSHOT</igmp.api.version>
-        <mcast.api.version>2.4.0-SNAPSHOT</mcast.api.version>
+        <aaa.api.version>2.4.0</aaa.api.version>
+        <olt.api.version>4.5.0</olt.api.version>
+        <dhcpl2relay.api.version>2.5.0</dhcpl2relay.api.version>
+        <bng.api.version>2.1.0</bng.api.version>
+        <sadis.api.version>5.4.0</sadis.api.version>
+        <igmp.api.version>2.3.0</igmp.api.version>
+        <mcast.api.version>2.4.0</mcast.api.version>
     </properties>
 
     <dependencies>
