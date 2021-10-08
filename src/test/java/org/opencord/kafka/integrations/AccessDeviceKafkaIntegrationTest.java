@@ -17,7 +17,6 @@
 package org.opencord.kafka.integrations;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,12 +26,8 @@ import org.onosproject.net.DeviceId;
 import org.opencord.kafka.EventBusService;
 import org.opencord.olt.AccessDeviceListener;
 import org.opencord.olt.AccessDeviceService;
-import org.opencord.olt.AccessSubscriberId;
-import org.opencord.sadis.UniTagInformation;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -112,31 +107,26 @@ class AccessDeviceKafkaIntegrationTest extends KafkaIntegrationTestBase {
         }
 
         @Override
-        public boolean provisionSubscriber(AccessSubscriberId accessSubscriberId,
-                                           Optional<VlanId> optional, Optional<VlanId> optional1,
-                                           Optional<Integer> optional2) {
+        public boolean provisionSubscriber(ConnectPoint accessSubscriberId,
+                                           VlanId optional, VlanId optional1,
+                                           Integer optional2) {
             return false;
         }
 
         @Override
-        public boolean removeSubscriber(AccessSubscriberId accessSubscriberId,
-                                        Optional<VlanId> optional, Optional<VlanId> optional1,
-                                        Optional<Integer> optional2) {
+        public boolean removeSubscriber(ConnectPoint accessSubscriberId,
+                                        VlanId optional, VlanId optional1,
+                                        Integer optional2) {
             return false;
         }
 
         @Override
-        public List<DeviceId> fetchOlts() {
+        public List<DeviceId> getConnectedOlts() {
             return null;
         }
 
         @Override
-        public ImmutableMap<ConnectPoint, Set<UniTagInformation>> getProgSubs() {
-            return null;
-        }
-
-        @Override
-        public ImmutableMap<ConnectPoint, Set<UniTagInformation>> getFailedSubs() {
+        public ConnectPoint findSubscriberConnectPoint(String id) {
             return null;
         }
 
