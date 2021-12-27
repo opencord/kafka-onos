@@ -151,7 +151,7 @@ public class KafkaIntegration implements EventBusService {
         properties.put(ACKS, config.getAcks());
         properties.put(KEY_SERIALIZER, STRING_SERIALIZER);
         properties.put(VALUE_SERIALIZER, STRING_SERIALIZER);
-
+        log.info("configured properties {}", properties);
         startKafka(properties);
     }
 
