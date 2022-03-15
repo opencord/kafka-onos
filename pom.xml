@@ -41,7 +41,7 @@
         <olt.api.version>5.0.0</olt.api.version>
         <dhcpl2relay.api.version>2.6.0</dhcpl2relay.api.version>
         <bng.api.version>2.2.0</bng.api.version>
-        <sadis.api.version>5.5.1</sadis.api.version>
+        <sadis.api.version>5.6.0-SNAPSHOT</sadis.api.version>
         <igmp.api.version>2.4.0</igmp.api.version>
         <mcast.api.version>2.5.0</mcast.api.version>
     </properties>
