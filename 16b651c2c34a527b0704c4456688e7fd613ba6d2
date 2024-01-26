@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9535ad7_bd9ec6a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000948
+      },
+      "writtenOn": "2024-01-26T20:15:10Z",
+      "side": 1,
+      "message": "Merge will publish release artifact for ONOS:kafka-onos (alias:kafka)",
+      "revId": "16b651c2c34a527b0704c4456688e7fd613ba6d2",
+      "serverId": "2a2bfe1b-c5c2-48ed-9ac8-16438ab24388"
+    }
+  ]
+}
