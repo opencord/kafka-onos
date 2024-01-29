@@ -38,7 +38,7 @@
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
         <aaa.api.version>2.11.0</aaa.api.version>
-        <olt.api.version>5.2.5</olt.api.version>
+        <olt.api.version>5.2.6</olt.api.version>
         <dhcpl2relay.api.version>2.11.0</dhcpl2relay.api.version>
         <bng.api.version>2.5.1</bng.api.version>
         <sadis.api.version>5.12.2</sadis.api.version>
