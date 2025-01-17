@@ -37,13 +37,13 @@
         <onos.app.title>Kafka integration</onos.app.title>
         <onos.app.url>http://opencord.org</onos.app.url>
         <onos.app.readme>Integration with Kafka event bus</onos.app.readme>
-        <aaa.api.version>2.11.0</aaa.api.version>
-        <olt.api.version>5.2.6</olt.api.version>
-        <dhcpl2relay.api.version>2.11.0</dhcpl2relay.api.version>
-        <bng.api.version>2.5.1</bng.api.version>
-        <sadis.api.version>5.12.2</sadis.api.version>
-        <igmp.api.version>2.9.0</igmp.api.version>
-        <mcast.api.version>2.9.1</mcast.api.version>
+        <aaa.api.version>2.11.2</aaa.api.version>
+        <olt.api.version>5.2.8</olt.api.version>
+        <dhcpl2relay.api.version>2.11.3</dhcpl2relay.api.version>
+        <bng.api.version>2.5.3</bng.api.version>
+        <sadis.api.version>5.12.3</sadis.api.version>
+        <igmp.api.version>2.9.1</igmp.api.version>
+        <mcast.api.version>2.9.3</mcast.api.version>
     </properties>
 
     <dependencies>
