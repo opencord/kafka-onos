@@ -27,7 +27,7 @@
 
     <groupId>org.opencord</groupId>
     <artifactId>kafka</artifactId>
-    <version>2.13.3</version>
+    <version>2.13.4-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <description>Kafka integration</description>
